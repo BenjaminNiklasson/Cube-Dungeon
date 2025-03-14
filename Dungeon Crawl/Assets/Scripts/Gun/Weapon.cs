@@ -1,16 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    // Start is called before the first frame update
+    bool bounceBullet = false;
+    bool fasterBullets = false;
+    bool lessCooldown = false;
+    bool moreDamage = false;
+    bool spreadShot = false;
+    bool pierceBullet = false;
+    bool bulletLifeSteal = false;
+   
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
