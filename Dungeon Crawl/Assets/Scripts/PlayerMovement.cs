@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Vector2 moveInput;
+    [SerializeField]Vector2 moveInput;
     Rigidbody2D rb;
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float rotateSpeed = 2000f;
@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void OnMove(InputValue value)
+    private void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
     }
@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
             Quaternion rotate = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
 
             rb.MoveRotation(rotate);
+            Debug.Log("moveing");
         }
         else
         {
