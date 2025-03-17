@@ -27,11 +27,7 @@ public class JeffAction : MonoBehaviour
 
     private void Attack()
     {
-        GameObject Attack = Instantiate(Fist, transform.position, Quaternion.identity);
-        Rigidbody2D fistRb = Attack.GetComponent<Rigidbody2D>();
-        Vector2 target = new Vector2(player.transform.position.x, player.transform.position.y);
-        Vector2 direcetion = new Vector2(target.x - transform.position.x, target.y - transform.position.y);
-        fistRb.AddForce(new Vector2(direcetion.x + fistSpeed * Time.deltaTime, direcetion.y + fistSpeed * Time.deltaTime), ForceMode2D.Impulse);
+        GameObject Attack = Instantiate(Fist, transform.position, T);
         Invoke("Attack", fistCooldown);
     }
 }
