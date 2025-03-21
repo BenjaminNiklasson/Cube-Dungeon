@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2350755836234541934}
   - component: {fileID: 803685471085986339}
+  - component: {fileID: 626142972971320343}
   - component: {fileID: -5408535596905220107}
   m_Layer: 0
   m_Name: Fist
@@ -26,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4070104543399187000}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 3.162493, y: -0.30927178, z: 0}
   m_LocalScale: {x: 0.5174004, y: 0.7653368, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &803685471085986339
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -85,6 +86,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &626142972971320343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4070104543399187000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4ac2caa3299874faef2c32044afd7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fistSpeed: 100
+  despawnTimer: 0.19
 --- !u!50 &-5408535596905220107
 Rigidbody2D:
   serializedVersion: 4
