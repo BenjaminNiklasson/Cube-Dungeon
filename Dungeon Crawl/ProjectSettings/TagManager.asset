@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Hazard
+  - KeepAway
   layers:
   - Default
   - TransparentFX
@@ -13,10 +14,10 @@ TagManager:
   - Gun
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - EnemyBullet
+  - Bullet
+  - KeepAway
   - 
   - 
   - 
