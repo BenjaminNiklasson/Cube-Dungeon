@@ -7,12 +7,15 @@ using UnityEngine.UIElements;
 
 public class TurnToPlayer : MonoBehaviour
 {
-    [SerializeField] Transform playerCharacter;
-
+    GameObject playerCharacter;
+    private void Start()
+    {
+        playerCharacter = GameObject.FindWithTag("Player");
+    }
     // Update is called once per frame
     void Update()
     {
-        Vector2 direction = new Vector2(playerCharacter.position.x - transform.position.x, playerCharacter.position.y - transform.position.y);
+        Vector2 direction = new Vector2(playerCharacter.transform.position.x - transform.position.x, playerCharacter.transform.position.y - transform.position.y);
         transform.up = direction;
     }
 }
