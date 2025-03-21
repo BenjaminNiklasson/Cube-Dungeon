@@ -140,9 +140,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eSpeed: 3
-  Fist: {fileID: 0}
-  fistCooldown: 2
-  fistSpeed: 2
+  Bullet: {fileID: 8349832882012948483, guid: e54ebff4ad24cfc4ca5f916ec8b5daf6, type: 3}
+  shootCooldown: 2
+  bulletSpeed: 2
 --- !u!60 &6032306726926710078
 PolygonCollider2D:
   m_ObjectHideFlags: 0
