@@ -1,0 +1,50 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class ScenePersist : MonoBehaviour
+{
+    [SerializeField] int playerLives = 3;
+    [SerializeField] int playerHealthMax = 10;
+    int playerHealth;
+    GameObject player;
+    Vector3 startSpawnPlayer;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+        playerHealth = playerHealthMax;
+        startSpawnPlayer = player.transform.position;
+    }
+    private void Awake()
+    {
+        int numScenePersist = FindObjectsByType<ScenePersist>(FindObjectsSortMode.None).Length;
+        if (numScenePersist > 1)
+        {
+            Destroy(gameObject);
+        }
+        else 
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+    public void PlayerHurt()
+    {
+        if (playerHealth < 1)
+        {
+            playerHealth--;
+        }
+        else if (playerLives > 0)
+        {
+            playerHealth = playerHealthMax;
+            playerLives--;
+            player.transform.position = startSpawnPlayer;
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+}
