@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 1736154420}
   - component: {fileID: 1736154423}
   - component: {fileID: 1736154419}
+  - component: {fileID: 1736154424}
   - component: {fileID: 1736154422}
   m_Layer: 0
   m_Name: Jeff
@@ -379,6 +380,18 @@ MonoBehaviour:
   Fist: {fileID: 4070104543399187000, guid: 6788b371d6695a644923b46ea4fe4ff7, type: 3}
   fistCooldown: 2
   fistSpeed: 10
+--- !u!114 &1736154424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736154418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbf29bae0ccda54ab33e6b8e88830a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2492745348041767316
 PrefabInstance:
   m_ObjectHideFlags: 0
