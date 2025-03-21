@@ -27,7 +27,7 @@ public class JeffAction : MonoBehaviour
 
     private void Attack()
     {
-        GameObject Attack = Instantiate(Fist, transform.position, T);
+        GameObject Attack = Instantiate(Fist, transform.position, transform.rotation);
         Invoke("Attack", fistCooldown);
     }
 }
