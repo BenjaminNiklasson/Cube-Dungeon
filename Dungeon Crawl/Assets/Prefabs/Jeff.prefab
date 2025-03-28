@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1574878798736725197}
   - component: {fileID: 1003887695615957034}
   - component: {fileID: 2178055306900748213}
+  - component: {fileID: -5321603706895809106}
   - component: {fileID: 9032597383703375551}
   m_Layer: 6
   m_Name: Jeff
@@ -150,6 +151,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcbf29bae0ccda54ab33e6b8e88830a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5321603706895809106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196593108259934756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054bc4e2201d79749bbfa975bf7c7fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  enemyType: Jeff
 --- !u!50 &9032597383703375551
 Rigidbody2D:
   serializedVersion: 4

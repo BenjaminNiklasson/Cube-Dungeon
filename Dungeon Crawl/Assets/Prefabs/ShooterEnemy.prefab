@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2898390657734861957}
   - component: {fileID: 5551411430990094}
   - component: {fileID: 6032306726926710078}
+  - component: {fileID: -525422126524638121}
   m_Layer: 6
   m_Name: ShooterEnemy
   m_TagString: Enemy
@@ -194,3 +195,17 @@ PolygonCollider2D:
       - {x: 0.43359375, y: 0.25}
       - {x: 0, y: 0.5}
   m_UseDelaunayMesh: 0
+--- !u!114 &-525422126524638121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6655248593584475333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054bc4e2201d79749bbfa975bf7c7fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  enemyType: Shooter
