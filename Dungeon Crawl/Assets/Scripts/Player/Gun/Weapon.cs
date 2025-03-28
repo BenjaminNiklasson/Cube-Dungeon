@@ -7,61 +7,72 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [Header("Gun Settings")]
-    [SerializeField] float playerBulletSpeed = 10f;
-    [SerializeField] public float playerDamage = 1f;
-    [SerializeField] float playerWeaponCooldown = 7.5f;
-    [SerializeField] GameObject playerBullet;
-    [SerializeField] GameObject playerGun;
-    float bulletSpreadDegrees = 15;
-    int numberOfBullets = 5;
+    [SerializeField] public float playerBulletSpeed = 10f;
+    [SerializeField] public float playerDamage = 10f;
+    [SerializeField] private float playerWeaponCooldown = 7.5f;
+    [SerializeField] private GameObject playerBullet;
+    [SerializeField] private GameObject playerGun;
+
+    private float bulletSpreadDegrees = 15;
+    private int numberOfBullets = 5;
     private float nextFireTime = 3.5f;
-
-
-    [Header("Upgrades Enabled")]
-    [SerializeField] bool spreadShot = false;
-    [SerializeField] bool hasFired = false;
-    [SerializeField] bool pierceBullet = false;
-    [SerializeField] bool bulletLifeSteal = false;
-    [SerializeField] bool fasterBullets = false;
-    [SerializeField] bool lessCooldown = false;
-    [SerializeField] bool moreDamage = false;
-    [SerializeField] bool bounceBullet = false;
-
+    private bool hasFired = false;
 
     void Start()
     {
-        
+        ApplyUpgrades();
     }
-
-    void OnFire()
+    private void ApplyUpgrades()
     {
-        if (!hasFired)
+        UpgradeManager upgrades = UpgradeManager.Instance;
+
+        if (upgrades.fasterBullets)
         {
-            if (spreadShot)
+            playerBulletSpeed *= 1.5f; 
+        }
+
+        if (upgrades.lessCooldown)
+        {
+            playerWeaponCooldown *= 0.75f; 
+        }
+
+        if (upgrades.moreDamage)
+        {
+            playerDamage += 5; 
+        }
+
+        if (upgrades.spreadShot)
+        {
+            for (int i = 0; i < numberOfBullets; i++)
             {
-                for (int i = 0; i < numberOfBullets; i++)
-                {
-                    float baseRotationZ = transform.rotation.eulerAngles.z;
-                    float randomOffset = Random.Range(bulletSpreadDegrees, -bulletSpreadDegrees);
-                    Quaternion bulletSpawnRotation = Quaternion.Euler(0, 0, baseRotationZ + randomOffset);
-                    GameObject bullet = Instantiate(playerBullet, playerGun.transform.position, bulletSpawnRotation);
-                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                    rb.AddForce(bullet.transform.up * playerBulletSpeed, ForceMode2D.Impulse);
-                    hasFired = true;
-                }
-            }
-            else
-            {
-                GameObject bullet = Instantiate(playerBullet, playerGun.transform.position, transform.rotation);
+                float baseRotationZ = transform.rotation.eulerAngles.z;
+                float randomOffset = Random.Range(bulletSpreadDegrees, -bulletSpreadDegrees);
+                Quaternion bulletSpawnRotation = Quaternion.Euler(0, 0, baseRotationZ + randomOffset);
+                GameObject bullet = Instantiate(playerBullet, playerGun.transform.position, bulletSpawnRotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(transform.up * playerBulletSpeed, ForceMode2D.Impulse);
+                rb.AddForce(bullet.transform.up * playerBulletSpeed, ForceMode2D.Impulse);
                 hasFired = true;
             }
         }
     }
+    void OnFire()
+    {
+        if (!hasFired)
+        {
+            FireBullet(transform.rotation);
+            hasFired = true;
+        }
+    }
+    private void FireBullet(Quaternion rotation)
+    {
+        GameObject bullet = Instantiate(playerBullet, playerGun.transform.position, rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(bullet.transform.up * playerBulletSpeed, ForceMode2D.Impulse);
+    }
+
     void Update()
     {
-        if (hasFired == true)
+        if (hasFired)
         {
             nextFireTime += Time.deltaTime;
             if (nextFireTime > playerWeaponCooldown)
