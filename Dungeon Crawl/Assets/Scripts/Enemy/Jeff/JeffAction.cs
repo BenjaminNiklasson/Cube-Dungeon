@@ -9,6 +9,7 @@ public class JeffAction : MonoBehaviour
     GameObject player;
     [SerializeField] GameObject Fist;
     [SerializeField] float fistCooldown = 2f;
+    [SerializeField] float fistSpeed = 2f;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,6 +28,7 @@ public class JeffAction : MonoBehaviour
     private void Attack()
     {
         GameObject Attack = Instantiate(Fist, transform.position, transform.rotation);
+        Attack.GetComponent<Rigidbody2D>().AddForce(Attack.transform.up * fistSpeed);
         Invoke("Attack", fistCooldown);
     }
 }

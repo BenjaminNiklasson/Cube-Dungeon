@@ -12,7 +12,6 @@ public class FistScript : MonoBehaviour
     {
         rb = transform.GetComponent<Rigidbody2D>();
         Invoke("DestroySelf", despawnTimer);
-        rb.AddForce(transform.up * fistSpeed);
     }
 
     // Update is called once per frame
