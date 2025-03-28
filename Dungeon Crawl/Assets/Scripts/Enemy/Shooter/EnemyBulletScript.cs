@@ -7,7 +7,6 @@ public class EnemyBulletScript : MonoBehaviour
     [SerializeField] float bulletSpeed = 2f;
     private void Update()
     {
-        transform.GetComponent<Rigidbody2D>().AddForce(transform.up * bulletSpeed);
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
