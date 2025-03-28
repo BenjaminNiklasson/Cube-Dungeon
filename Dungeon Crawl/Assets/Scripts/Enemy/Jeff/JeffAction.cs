@@ -9,7 +9,6 @@ public class JeffAction : MonoBehaviour
     GameObject player;
     [SerializeField] GameObject Fist;
     [SerializeField] float fistCooldown = 2f;
-    [SerializeField] float fistSpeed = 2f;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
