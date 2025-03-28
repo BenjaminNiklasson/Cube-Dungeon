@@ -17,7 +17,7 @@ public class FistScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.AddForce(transform.up * fistSpeed);
+        
     }
     void DestroySelf()
     {
