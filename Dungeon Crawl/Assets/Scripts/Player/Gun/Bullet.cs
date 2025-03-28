@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     bool bounceBullet = false;
+    int numBounces = 2;
     Rigidbody2D rb;
 
     private void Start()
@@ -14,7 +15,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (bounceBullet)
+        if (bounceBullet && numBounces < 0)
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
@@ -26,6 +27,7 @@ public class Bullet : MonoBehaviour
                 ContactPoint2D contact = collision.contacts[0];
                 Vector2 reflectedVelocity = Vector2.Reflect(rb.velocity, contact.normal);
                 rb.velocity = reflectedVelocity;
+                numBounces--;
             }
         }
         else
