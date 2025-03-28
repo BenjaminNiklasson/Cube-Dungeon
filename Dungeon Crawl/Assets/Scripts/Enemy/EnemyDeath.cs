@@ -10,12 +10,29 @@ public class EnemyDeath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        switch (enemyType)
+        {
+            case "Jeff":
+                health = 5;
+                break;
+            case "Shooter":
+                health = 2;
+                break;
+            case "Swarmer":
+                health = 1;
+                break;
+            case "Suicider":
+                health = 3;
+                break;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (health == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
