@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9032597383703375551}
   m_Layer: 6
   m_Name: Jeff
-  m_TagString: Enemy
+  m_TagString: Jeff
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -5177388603050735206, guid: 71ebafeef3c03457483266a33ab2b270, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,7 +103,6 @@ MonoBehaviour:
   eSpeed: 2
   Fist: {fileID: 4070104543399187000, guid: 6788b371d6695a644923b46ea4fe4ff7, type: 3}
   fistCooldown: 2
-  fistSpeed: 10
 --- !u!58 &1003887695615957034
 CircleCollider2D:
   m_ObjectHideFlags: 0

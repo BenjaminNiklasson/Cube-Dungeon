@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Hazard
   - KeepAway
+  - Jeff
   layers:
   - Default
   - TransparentFX

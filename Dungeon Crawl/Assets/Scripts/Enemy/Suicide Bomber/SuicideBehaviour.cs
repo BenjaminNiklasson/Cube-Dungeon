@@ -21,4 +21,12 @@ public class SuicideBehaviour : MonoBehaviour
         Vector2 direction = (player.transform.position - transform.position).normalized;
         rb.MovePosition(rb.position + direction * eSpeed * Time.fixedDeltaTime);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("player"))
+        {
+
+        }
+    }
 }
