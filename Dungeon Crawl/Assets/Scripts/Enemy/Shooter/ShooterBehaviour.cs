@@ -47,7 +47,7 @@ public class ShooterBeaviour : MonoBehaviour
     private void Attack()
     {
         GameObject Attack = Instantiate(Bullet, transform.position, transform.rotation);
-        Attack.GetComponent<Rigidbody2D>().AddForce(Attack.transform.up, ForceMode2D.Impulse);
+        Attack.GetComponent<Rigidbody2D>().AddForce(Attack.transform.up * bulletSpeed);
         Invoke("Attack", shootCooldown);
     }
 }
