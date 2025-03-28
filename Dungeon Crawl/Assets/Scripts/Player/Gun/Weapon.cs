@@ -14,13 +14,13 @@ public class Weapon : MonoBehaviour
     float bulletSpreadDegrees = 15;
     int numberOfBullets = 5;
 
+    bool spreadShot = false;
+    //bool pierceBullet = false;
+    //bool bulletLifeSteal = false;
     //bool fasterBullets = false;
     //bool lessCooldown = false;
     //bool moreDamage = false;
     //bool bounceBullet = false;
-    bool spreadShot = false;
-    //bool pierceBullet = false;
-    //bool bulletLifeSteal = false;
 
 
     void Start()
@@ -49,7 +49,7 @@ public class Weapon : MonoBehaviour
             rb.AddForce(transform.up * playerBulletSpeed, ForceMode2D.Impulse);
         }
     }
-    void Update()
+    void Update() 
     {
 
     }
