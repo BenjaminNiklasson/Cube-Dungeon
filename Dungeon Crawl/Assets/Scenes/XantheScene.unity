@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eSpeed: 3
+  explosion: {fileID: 8885823624993926739, guid: 61f2139cdd93cb640b659d913c7455e2, type: 3}
 --- !u!1 &1718369399
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +414,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 645271310701947781, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0625048
+      value: 3.18
       objectReference: {fileID: 0}
     - target: {fileID: 645271310701947781, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
       propertyPath: m_LocalPosition.y

@@ -7,6 +7,7 @@ public class SuicideBehaviour : MonoBehaviour
     Rigidbody2D rb;
     GameObject player;
     [SerializeField] float eSpeed = 2f;
+    [SerializeField] GameObject explosion;
 
     // Start is called before the first frame update
     void Start()
@@ -20,5 +21,14 @@ public class SuicideBehaviour : MonoBehaviour
     {
         Vector2 direction = (player.transform.position - transform.position).normalized;
         rb.MovePosition(rb.position + direction * eSpeed * Time.fixedDeltaTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
 }

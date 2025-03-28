@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [Header("Gun Settings")]
     [SerializeField] float playerBulletSpeed = 10f;
     [SerializeField] float playerDamage = 10f;
     [SerializeField] float playerWeaponCooldown = 7.5f;
@@ -13,21 +14,23 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject playerGun;
     float bulletSpreadDegrees = 15;
     int numberOfBullets = 5;
-
-    bool spreadShot = false;
     private float nextFireTime = 3.5f;
-    bool hasFired = false;
-    bool pierceBullet = false;
-    bool bulletLifeSteal = false;
-    bool fasterBullets = false;
-    bool lessCooldown = false;
-    bool moreDamage = false;
-    bool bounceBullet = false;
+
+
+    [Header("Upgrades Enabled")]
+    [SerializeField] bool spreadShot = false;
+    [SerializeField] bool hasFired = false;
+    [SerializeField] bool pierceBullet = false;
+    [SerializeField] bool bulletLifeSteal = false;
+    [SerializeField] bool fasterBullets = false;
+    [SerializeField] bool lessCooldown = false;
+    [SerializeField] bool moreDamage = false;
+    [SerializeField] bool bounceBullet = false;
 
 
     void Start()
     {
-        //spreadShot = true;
+        
     }
 
     void OnFire()
