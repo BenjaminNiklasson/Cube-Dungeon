@@ -30,7 +30,7 @@ public class Weapon : MonoBehaviour
 
     void Start()
     {
-        //spreadShot = true;
+        
     }
 
     void OnFire()
