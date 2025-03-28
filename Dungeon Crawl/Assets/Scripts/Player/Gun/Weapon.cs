@@ -8,15 +8,15 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] float playerBulletSpeed = 10f;
     [SerializeField] float playerDamage = 10f;
-    [SerializeField] float playerWeaponCooldown = 0.5f;
+    [SerializeField] float playerWeaponCooldown = 7.5f;
     [SerializeField] GameObject playerBullet;
     [SerializeField] GameObject playerGun;
     float bulletSpreadDegrees = 15;
     int numberOfBullets = 5;
 
     bool spreadShot = false;
-    private float nextFireTime = 0f;
-    bool hasFired;
+    private float nextFireTime = 3.5f;
+    bool hasFired = false;
     bool pierceBullet = false;
     bool bulletLifeSteal = false;
     bool fasterBullets = false;
@@ -44,6 +44,7 @@ public class Weapon : MonoBehaviour
                     GameObject bullet = Instantiate(playerBullet, playerGun.transform.position, bulletSpawnRotation);
                     Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                     rb.AddForce(bullet.transform.up * playerBulletSpeed, ForceMode2D.Impulse);
+                    hasFired = true;
                 }
             }
             else
@@ -51,12 +52,13 @@ public class Weapon : MonoBehaviour
                 GameObject bullet = Instantiate(playerBullet, playerGun.transform.position, transform.rotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(transform.up * playerBulletSpeed, ForceMode2D.Impulse);
+                hasFired = true;
             }
         }
     }
     void Update()
     {
-        if (hasFired)
+        if (hasFired == true)
         {
             nextFireTime += Time.deltaTime;
             if (nextFireTime > playerWeaponCooldown)
