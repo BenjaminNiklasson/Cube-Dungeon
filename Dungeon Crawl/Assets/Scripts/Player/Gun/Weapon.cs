@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
 {
     [Header("Gun Settings")]
     [SerializeField] float playerBulletSpeed = 10f;
-    [SerializeField] float playerDamage = 10f;
+    [SerializeField] public float playerDamage = 1f;
     [SerializeField] float playerWeaponCooldown = 7.5f;
     [SerializeField] GameObject playerBullet;
     [SerializeField] GameObject playerGun;

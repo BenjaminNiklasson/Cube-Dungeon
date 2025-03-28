@@ -7,10 +7,12 @@ public class Bullet : MonoBehaviour
     bool bounceBullet = false;
     int numBounces = 2;
     Rigidbody2D rb;
+    float dmg;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        dmg = GameObject.FindWithTag("Player").GetComponent<Weapon>().playerDamage;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -19,7 +21,7 @@ public class Bullet : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                collision.gameObject.GetComponent<EnemyDeath>().health--;
+                collision.gameObject.GetComponent<EnemyDeath>().health = collision.gameObject.GetComponent<EnemyDeath>().health-dmg;
                 Destroy(gameObject);
             }
             else
