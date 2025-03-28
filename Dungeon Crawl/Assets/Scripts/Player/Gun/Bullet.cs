@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
                 ContactPoint2D contact = collision.contacts[0];
                 Vector2 reflectedVelocity = Vector2.Reflect(rb.velocity, contact.normal);
                 rb.velocity = reflectedVelocity;
-                numBounces--;
+                numBounces--;   
             }
         }
         else
