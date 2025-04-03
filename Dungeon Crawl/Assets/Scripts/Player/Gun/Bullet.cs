@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] float rotateAfterBounce;
-    bool bounceBullet = true;
+    bool bounceBullet = false;
     int numBounces = 2;
     Rigidbody2D rb;
     float dmg;
