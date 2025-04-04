@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] float rotateAfterBounce;
     bool bounceBullet = true;
     bool lifesteal;
-    int numBounces = 0;
+    int numBounces = 3;
     Rigidbody2D rb;
     float dmg;
 
@@ -53,10 +53,10 @@ public class Bullet : MonoBehaviour
 
     void Lifesteal()
     {
-        if (lifesteal)
-        {
-            transform.FindFirstObjectByType<ScenePersist>.AddLifestealCounter();
-        }
+        //if (lifesteal)
+        //{
+        //    transform.FindFirstObjectByType<ScenePersist>.AddLifestealCounter();
+        //}
     }
 
     private void OnBecameInvisible()

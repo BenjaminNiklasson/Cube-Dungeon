@@ -8,6 +8,7 @@ TagManager:
   - Hazard
   - KeepAway
   - Jeff
+  - Upgrade
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - EnemyBullet
   - Bullet
   - KeepAway
-  - 
+  - Upgrade
   - 
   - 
   - 

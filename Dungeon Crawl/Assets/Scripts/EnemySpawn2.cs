@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
 
-public class EnemySpawn : MonoBehaviour
+public class EnemySpawn2 : MonoBehaviour
 {
     List<List<int>> waves = new List<List<int>>();
     [SerializeField] GameObject jeff;

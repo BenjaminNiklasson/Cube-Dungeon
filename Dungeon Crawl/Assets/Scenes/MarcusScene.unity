@@ -378,6 +378,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cooldown Upgrade
       objectReference: {fileID: 0}
+    - target: {fileID: 371354920462427992, guid: 6b6167231a9cb024caff97f9700ec0f8, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 371354920462427992, guid: 6b6167231a9cb024caff97f9700ec0f8, type: 3}
+      propertyPath: m_TagString
+      value: Upgrade
+      objectReference: {fileID: 0}
     - target: {fileID: 7108211392106269924, guid: 6b6167231a9cb024caff97f9700ec0f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.97
@@ -417,6 +425,10 @@ PrefabInstance:
     - target: {fileID: 7108211392106269924, guid: 6b6167231a9cb024caff97f9700ec0f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8811940080703957329, guid: 6b6167231a9cb024caff97f9700ec0f8, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
