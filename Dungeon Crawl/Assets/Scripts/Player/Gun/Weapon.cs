@@ -24,10 +24,15 @@ public class Weapon : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter(Collider other)
     {
-        ApplyUpgrades();
+        if (other.CompareTag("Upgrade"))
+        {
+            ApplyUpgrades();
+            Debug.Log("Triggered by Upgrade!");
+        }
     }
+
     private void ApplyUpgrades()
     {
         UpgradeManager upgrades = UpgradeManager.Instance;
