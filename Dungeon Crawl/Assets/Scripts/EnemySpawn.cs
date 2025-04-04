@@ -33,7 +33,7 @@ public class EnemySpawn : MonoBehaviour
     }
     void Spawn()
     {
-        Transform spawnPoint = transform.GetChild(Random.Range(0, transform.GetChildCount()));
+        Transform spawnPoint = transform.GetChild(Random.Range(0, transform.childCount));
 
         Invoke("Spawn", spawnCooldown);
     }
