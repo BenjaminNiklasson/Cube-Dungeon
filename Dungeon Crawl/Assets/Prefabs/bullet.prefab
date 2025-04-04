@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4038310373305647945}
   - component: {fileID: 8157649159581797906}
   m_Layer: 8
-  m_Name: Bullet
+  m_Name: bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +104,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7a0b99243ec18cb48851b726869a5c70, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3f26580dcd466488b0b814b98025b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateAfterBounce: 0.5
+  rotateAfterBounce: 0
 --- !u!1 &7523640277024776823
 GameObject:
   m_ObjectHideFlags: 0
