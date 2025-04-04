@@ -223,8 +223,36 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 189532458501729790, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
+      propertyPath: hasFired
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 189532458501729790, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
+      propertyPath: moreDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 189532458501729790, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
       propertyPath: spreadShot
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 189532458501729790, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
+      propertyPath: bounceBullet
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 189532458501729790, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
+      propertyPath: lessCooldown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 189532458501729790, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
+      propertyPath: pierceBullet
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 189532458501729790, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
+      propertyPath: fasterBullets
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 189532458501729790, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
+      propertyPath: bulletLifeSteal
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 645271310701947781, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -275,9 +303,61 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
+--- !u!1 &1850390964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1850390966}
+  - component: {fileID: 1850390965}
+  m_Layer: 0
+  m_Name: UpgradeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1850390965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850390964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614044abcfffec8459cd7bdbf1153239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spreadShot: 0
+  pierceBullet: 0
+  bulletLifeSteal: 0
+  fasterBullets: 0
+  lessCooldown: 0
+  moreDamage: 0
+  bounceBullet: 0
+--- !u!4 &1850390966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850390964}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.47294062, y: 1.8597362, z: -4.428643}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 532154544}
+  - {fileID: 1850390966}

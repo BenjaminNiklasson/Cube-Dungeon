@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] float rotateAfterBounce;
     bool bounceBullet = true;
+    bool lifesteal;
+    float lifestealAmount = 0;
     int numBounces = 2;
     Rigidbody2D rb;
     float dmg;
@@ -28,10 +30,7 @@ public class Bullet : MonoBehaviour
             }
             else
             {
-                ContactPoint2D contact = collision.contacts[0];
-                Vector2 reflectedVelocity = Vector2.Reflect(rb.velocity, contact.normal);
-                rb.velocity = reflectedVelocity;
-                Invoke("RotateTowardsVelocity", rotateAfterBounce);
+                RotateTowardsVelocity();
                 numBounces--;   
             }
         }
@@ -48,8 +47,20 @@ public class Bullet : MonoBehaviour
     void RotateTowardsVelocity()
     {
         float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
-        Debug.Log("ResettingVelocity");
+        rb.angularVelocity = 0f;
+        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+        Debug.Log("ResettingRotation");
+    }
+
+    void Lifesteal()
+    {
+        if (lifesteal)
+        {
+            for (int i = 0; i < lifestealAmount; i++)
+            {
+                FindFirstObjectByType<ScenePersist>.AddLifestealCounter();
+            }
+        }
     }
 
     private void OnBecameInvisible()
