@@ -1,8 +1,9 @@
+using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.UIElements;
 
 public class Weapon : MonoBehaviour
 {
@@ -13,12 +14,17 @@ public class Weapon : MonoBehaviour
     [SerializeField] private GameObject playerBullet;
     [SerializeField] private GameObject playerGun;
 
-    private float bulletSpreadDegrees = 15;
-    private int numberOfBullets = 5;
-    private float nextFireTime = 3.5f;
+    private float bulletSpreadDegrees = 2f;
+    private int numberOfBullets = 1;
+    private float nextFireTime = 0f;
     private bool hasFired = false;
 
     void Start()
+    {
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         ApplyUpgrades();
     }
@@ -26,35 +32,25 @@ public class Weapon : MonoBehaviour
     {
         UpgradeManager upgrades = UpgradeManager.Instance;
 
-        if (upgrades.fasterBullets)
-        {
-            playerBulletSpeed *= 1.5f; 
-        }
+        // Increase bullet speed by +5 per stack
+        playerBulletSpeed += upgrades.GetStackCount(UpgradeType.FasterBullets) * 5f;
 
-        if (upgrades.lessCooldown)
-        {
-            playerWeaponCooldown *= 0.75f; 
-        }
+        // Increase damage by +5 per stack
+        playerDamage += upgrades.GetStackCount(UpgradeType.MoreDamage) * 5f;
 
-        if (upgrades.moreDamage)
-        {
-            playerDamage += 5; 
-        }
+        // Reduce cooldown by 10% per stack (multiplicative)
+        int cooldownStacks = upgrades.GetStackCount(UpgradeType.LessCooldown);
+        playerWeaponCooldown *= Mathf.Pow(0.75f, cooldownStacks);
 
-        if (upgrades.spreadShot)
+        // SpreadShot: +2 bullets per stack, +1° spread per stack
+        if (upgrades.HasUpgrade(UpgradeType.SpreadShot))
         {
-            for (int i = 0; i < numberOfBullets; i++)
-            {
-                float baseRotationZ = transform.rotation.eulerAngles.z;
-                float randomOffset = Random.Range(bulletSpreadDegrees, -bulletSpreadDegrees);
-                Quaternion bulletSpawnRotation = Quaternion.Euler(0, 0, baseRotationZ + randomOffset);
-                GameObject bullet = Instantiate(playerBullet, playerGun.transform.position, bulletSpawnRotation);
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(bullet.transform.up * playerBulletSpeed, ForceMode2D.Impulse);
-                hasFired = true;
-            }
+            int spreadStacks = upgrades.GetStackCount(UpgradeType.SpreadShot);
+            numberOfBullets = 1 + spreadStacks * 2;
+            bulletSpreadDegrees = 3f + spreadStacks;
         }
     }
+
     void OnFire()
     {
         if (!hasFired)
@@ -63,11 +59,26 @@ public class Weapon : MonoBehaviour
             hasFired = true;
         }
     }
+
     private void FireBullet(Quaternion rotation)
     {
-        GameObject bullet = Instantiate(playerBullet, playerGun.transform.position, rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(bullet.transform.up * playerBulletSpeed, ForceMode2D.Impulse);
+        float baseRotationZ = transform.rotation.eulerAngles.z;
+
+        for (int i = 0; i < numberOfBullets; i++)
+        {
+            float spreadOffset = 0f;
+
+            if (numberOfBullets > 1)
+            {
+                float totalSpread = bulletSpreadDegrees * (numberOfBullets - 1);
+                spreadOffset = -totalSpread / 2f + bulletSpreadDegrees * i;
+            }
+
+            Quaternion bulletRotation = Quaternion.Euler(0, 0, baseRotationZ + spreadOffset);
+            GameObject bullet = Instantiate(playerBullet, playerGun.transform.position, bulletRotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(bullet.transform.up * playerBulletSpeed, ForceMode2D.Impulse);
+        }
     }
 
     void Update()
@@ -75,12 +86,11 @@ public class Weapon : MonoBehaviour
         if (hasFired)
         {
             nextFireTime += Time.deltaTime;
-            if (nextFireTime > playerWeaponCooldown)
+            if (nextFireTime >= playerWeaponCooldown)
             {
                 hasFired = false;
-                nextFireTime = 0;
+                nextFireTime = 0f;
             }
         }
     }
 }
-
