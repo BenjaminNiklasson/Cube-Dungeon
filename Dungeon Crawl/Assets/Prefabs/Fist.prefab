@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4ac2caa3299874faef2c32044afd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fistSpeed: 0
-  despawnTimer: 0.2
+  fistSpeed: 10000
+  despawnTimer: 0.3
 --- !u!50 &-5408535596905220107
 Rigidbody2D:
   serializedVersion: 4
