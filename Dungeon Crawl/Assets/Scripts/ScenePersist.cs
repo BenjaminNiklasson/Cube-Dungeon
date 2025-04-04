@@ -8,8 +8,11 @@ public class ScenePersist : MonoBehaviour
     [SerializeField] int playerLives = 3;
     [SerializeField] int playerHealthMax = 10;
     int playerHealth;
+    float lifestealAmount = 0;
     GameObject player;
     Vector3 startSpawnPlayer;
+    int lifeStealCounter;
+
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +48,18 @@ public class ScenePersist : MonoBehaviour
         else
         {
             SceneManager.LoadScene(0);
+        }
+    }
+
+    public void AddLifestealCounter()
+    {
+        for (int i = 0; i < lifestealAmount; i++)
+        {
+            lifeStealCounter++;
+            if (lifeStealCounter >= 3 && playerHealthMax !<= playerHealth)
+            {
+                playerHealth++;
+            }
         }
     }
 }
