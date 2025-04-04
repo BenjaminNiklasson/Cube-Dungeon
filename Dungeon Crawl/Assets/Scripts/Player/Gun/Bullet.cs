@@ -8,8 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] float rotateAfterBounce;
     bool bounceBullet = true;
     bool lifesteal;
-    float lifestealAmount = 0;
-    int numBounces = 2;
+    int numBounces = 0;
     Rigidbody2D rb;
     float dmg;
 
@@ -21,7 +20,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (bounceBullet && numBounces > 0)
+        if (numBounces > 0)
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
@@ -56,10 +55,7 @@ public class Bullet : MonoBehaviour
     {
         if (lifesteal)
         {
-            for (int i = 0; i < lifestealAmount; i++)
-            {
-                FindFirstObjectByType<ScenePersist>.AddLifestealCounter();
-            }
+            transform.FindFirstObjectByType<ScenePersist>.AddLifestealCounter();
         }
     }
 
