@@ -223,12 +223,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 645271310701947781, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9924
+      objectReference: {fileID: 0}
+    - target: {fileID: 645271310701947781, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 645271310701947781, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0038
       objectReference: {fileID: 0}
     - target: {fileID: 645271310701947781, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -300,7 +304,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614044abcfffec8459cd7bdbf1153239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testUpgrades: []
+  testUpgrades:
+  - type: 3
+    stackCount: 0
 --- !u!4 &1850390966
 Transform:
   m_ObjectHideFlags: 0
@@ -350,7 +356,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.50033253}
@@ -385,6 +391,14 @@ PrefabInstance:
     - target: {fileID: 371354920462427992, guid: 6b6167231a9cb024caff97f9700ec0f8, type: 3}
       propertyPath: m_TagString
       value: Upgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869922469685678997, guid: 6b6167231a9cb024caff97f9700ec0f8, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869922469685678997, guid: 6b6167231a9cb024caff97f9700ec0f8, type: 3}
+      propertyPath: m_FlipY
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7108211392106269924, guid: 6b6167231a9cb024caff97f9700ec0f8, type: 3}
       propertyPath: m_LocalPosition.x
