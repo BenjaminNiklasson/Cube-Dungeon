@@ -9,6 +9,7 @@ TagManager:
   - KeepAway
   - Jeff
   - Upgrade
+  - ScenePersist
   layers:
   - Default
   - TransparentFX

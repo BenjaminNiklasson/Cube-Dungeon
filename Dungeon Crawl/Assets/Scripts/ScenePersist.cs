@@ -7,6 +7,8 @@ public class ScenePersist : MonoBehaviour
 {
     [SerializeField] int playerLives = 3;
     [SerializeField] int playerHealthMax = 10;
+    [SerializeField] float invincibilityTime = 1f;
+    bool invincible = false;
     int playerHealth;
     float lifestealAmount = 0;
     GameObject player;
@@ -35,19 +37,24 @@ public class ScenePersist : MonoBehaviour
     }
     public void PlayerHurt()
     {
-        if (playerHealth > 1)
+        if (invincible == false)
         {
-            playerHealth--;
-        }
-        else if (playerLives > 0)
-        {
-            playerHealth = playerHealthMax;
-            playerLives--;
-            player.transform.position = startSpawnPlayer;
-        }
-        else
-        {
-            SceneManager.LoadScene(0);
+            if (playerHealth > 1)
+            {
+                playerHealth--;
+                invincible = true;
+                Invoke("TurnOffInvincible", invincibilityTime);
+            }
+            else if (playerLives > 0)
+            {
+                playerHealth = playerHealthMax;
+                playerLives--;
+                player.transform.position = startSpawnPlayer;
+            }
+            else
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
 
@@ -61,5 +68,10 @@ public class ScenePersist : MonoBehaviour
                 playerHealth++;
             }
         }
+    }
+
+    private void TurnOffInvincible()
+    {
+        invincible = false;
     }
 }
