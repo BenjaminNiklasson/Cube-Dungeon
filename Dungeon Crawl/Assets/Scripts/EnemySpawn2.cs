@@ -15,6 +15,7 @@ public class EnemySpawn2 : MonoBehaviour
     [SerializeField] List<int> wave3 = new List<int>();
     [SerializeField] float spawnCooldown = 1f;
     int activeWave;
+    bool spawningFinished = false;
     void Start()
     {
         waves.Add(wave1);
@@ -24,7 +25,10 @@ public class EnemySpawn2 : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Invoke("Spawn", spawnCooldown);
+        if (spawningFinished == false && collision.gameObject.CompareTag("Player"))
+        {
+            Invoke("Spawn", spawnCooldown);
+        }
     }
     void Spawn()
     {
@@ -35,6 +39,7 @@ public class EnemySpawn2 : MonoBehaviour
         {
             enemyType = Random.Range(0, 3);
             enemyToSpawn = waves[activeWave][enemyType];
+            Debug.Log(enemyToSpawn);
         }
         switch (enemyType)
         {
@@ -55,6 +60,17 @@ public class EnemySpawn2 : MonoBehaviour
                 waves[activeWave][enemyType]--;
                 break;
         }
-        Invoke("Spawn", spawnCooldown);
+        spawningFinished = true;
+        for (int i = 0; i < 3; i++)
+        {
+            if (waves[activeWave][i] != 0)
+            {
+                spawningFinished = false;
+            }
+        }
+        if (spawningFinished == false)
+        {
+            Invoke("Spawn", spawnCooldown);
+        }
     }
 }

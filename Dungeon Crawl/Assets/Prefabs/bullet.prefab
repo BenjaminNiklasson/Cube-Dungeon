@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6594395223245352621}
   - component: {fileID: 4641398241339984446}
   - component: {fileID: 4038310373305647945}
-  - component: {fileID: 8157649159581797906}
+  - component: {fileID: 5493079799626683426}
   m_Layer: 8
   m_Name: bullet
   m_TagString: Untagged
@@ -104,7 +104,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 7a0b99243ec18cb48851b726869a5c70, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -150,7 +150,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0000019073486, y: 0.0000019073486}
   m_Size: {x: 1.0000001, y: 1.0000002}
   m_Direction: 0
---- !u!114 &8157649159581797906
+--- !u!114 &5493079799626683426
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4840432972189335135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c3f26580dcd466488b0b814b98025b6, type: 3}
+  m_Script: {fileID: 11500000, guid: c00cfc2089cb73c4183a7dacd529a908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotateAfterBounce: 0

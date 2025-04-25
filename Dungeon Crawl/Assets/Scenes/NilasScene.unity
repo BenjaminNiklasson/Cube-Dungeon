@@ -543,6 +543,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 189532458501729790, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
+      propertyPath: playerBulletSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 645271310701947781, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.0625048
