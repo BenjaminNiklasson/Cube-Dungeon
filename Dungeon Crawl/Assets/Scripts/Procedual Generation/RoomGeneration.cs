@@ -7,7 +7,6 @@ public class RoomGeneration : MonoBehaviour
 {
     [SerializeField] List<RoomSpawnpointNumber> _roomSpawnPoints = new List<RoomSpawnpointNumber>();
     [SerializeField] Dictionary<string, GameObject> _rooms = new Dictionary<string, GameObject>();
-    List<GameObject> _1DoorRooms = new List<GameObject>();
     List<GameObject> _2AdjacentDoorRooms = new List<GameObject>();
     List<GameObject> _2OppositeDoorRooms = new List<GameObject>();
     List<GameObject> _3DoorsRooms = new List<GameObject>();
@@ -31,9 +30,6 @@ public class RoomGeneration : MonoBehaviour
         {
             switch (room.Key)
             {
-                case "1Door":
-                    _1DoorRooms.Add(room.Value);
-                    break;
                 case "2AdjacentDoors":
                     _2AdjacentDoorRooms.Add(room.Value);
                     break;
