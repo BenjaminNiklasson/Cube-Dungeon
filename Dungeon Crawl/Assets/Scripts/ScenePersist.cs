@@ -35,7 +35,7 @@ public class ScenePersist : MonoBehaviour
     }
     public void PlayerHurt()
     {
-        if (playerHealth < 1)
+        if (playerHealth > 1)
         {
             playerHealth--;
         }
