@@ -1,9 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
-using System.IO;
-using System.Net;
-using UnityEngine.UIElements;
 
 public enum UpgradeType
 {
@@ -27,7 +23,7 @@ public class UpgradeManager : MonoBehaviour
 {
     public static UpgradeManager Instance { get; private set; }
 
-    [Header("Test Upgrades (Editable in Inspector)")]
+    [Header("Test Upgrades")]
     [SerializeField] private List<UpgradeEntry> testUpgrades = new List<UpgradeEntry>();
 
     private Dictionary<UpgradeType, int> upgrades = new Dictionary<UpgradeType, int>();
@@ -38,7 +34,7 @@ public class UpgradeManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            ApplyInspectorUpgrades(); // load the inspector values
+            ApplyInspectorUpgrades();
         }
         else
         {
@@ -46,11 +42,9 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    // Reads values from inspector list into the real upgrades dictionary
     private void ApplyInspectorUpgrades()
     {
         upgrades.Clear();
-
         foreach (UpgradeEntry entry in testUpgrades)
         {
             if (entry.stackCount > 0)
@@ -60,17 +54,12 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    // Use this if you want to add more upgrades dynamically during runtime
     public void AddUpgrade(UpgradeType type)
     {
         if (upgrades.ContainsKey(type))
-        {
             upgrades[type]++;
-        }
         else
-        {
             upgrades[type] = 1;
-        }
     }
 
     public bool HasUpgrade(UpgradeType type)
@@ -83,4 +72,3 @@ public class UpgradeManager : MonoBehaviour
         return upgrades.TryGetValue(type, out int count) ? count : 0;
     }
 }
-

@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &239299764 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8108661389716343393, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
+  m_PrefabInstance: {fileID: 532154544}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +227,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 189532458501729790, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
+      propertyPath: bulletSpawnPoint
+      value: 
+      objectReference: {fileID: 239299764}
     - target: {fileID: 645271310701947781, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.9924
@@ -287,7 +296,7 @@ GameObject:
   - component: {fileID: 1850390965}
   m_Layer: 0
   m_Name: UpgradeManager
-  m_TagString: Untagged
+  m_TagString: Upgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -305,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testUpgrades:
-  - type: 3
+  - type: 4
     stackCount: 0
 --- !u!4 &1850390966
 Transform:
