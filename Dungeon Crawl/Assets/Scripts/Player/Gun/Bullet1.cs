@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Bullet : MonoBehaviour
+public class Bullet1 : MonoBehaviour
 {
     [SerializeField] float rotateAfterBounce;
     bool bounceBullet = true;
     bool lifesteal;
-    int numBounces = 0;
+    int numBounces = 1;
     Rigidbody2D rb;
     float dmg;
 
@@ -22,13 +22,16 @@ public class Bullet : MonoBehaviour
     {
         if (numBounces > 0)
         {
-            if (collision.gameObject.CompareTag("Enemy"))
+            if (collision.gameObject.CompareTag("Enemy") )
             {
                 collision.gameObject.GetComponent<EnemyDeath>().health = collision.gameObject.GetComponent<EnemyDeath>().health-dmg;
                 Destroy(gameObject);
             }
             else
             {
+                ContactPoint2D contact = collision.contacts[0]; // Get collision point
+                Vector2 reflectedVelocity = Vector2.Reflect(rb.velocity, contact.normal); // Reflect velocity
+                rb.velocity = reflectedVelocity;
                 RotateTowardsVelocity();
                 numBounces--;   
             }
