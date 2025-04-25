@@ -16,7 +16,7 @@ public class RoomGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        sortRooms();
     }
 
     // Update is called once per frame
