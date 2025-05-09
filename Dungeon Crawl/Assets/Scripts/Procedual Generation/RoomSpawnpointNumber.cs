@@ -14,7 +14,6 @@ namespace Assets.Scripts.Procedual_Generation
         int _roomNumber;
         Collider2D _doorTrigger;
 
-
         public RoomSpawnpointNumber(int number, Transform position)
         {
             _roomNumber = number;
