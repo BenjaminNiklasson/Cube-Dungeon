@@ -28,5 +28,5 @@ public class RoomGeneration : MonoBehaviour
     private void StartSpawning()
     {
         
-    }
+    } 
 }
