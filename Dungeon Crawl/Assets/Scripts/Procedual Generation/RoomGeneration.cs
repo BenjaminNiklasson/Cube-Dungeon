@@ -5,13 +5,14 @@ using System.Collections.Generic;
 using UnityEngine;
 public class RoomGeneration : MonoBehaviour
 {
-    [SerializeField] List<RoomSpawnpointNumber> _roomSpawnPoints = new List<RoomSpawnpointNumber>();
+    [SerializeField] List<RoomSpawnpoint> _roomSpawnPoints = new List<RoomSpawnpoint>();
     [SerializeField] List<GameObject> _2AdjacentDoorRooms = new List<GameObject>();
     [SerializeField] List<GameObject> _2OppositeDoorRooms = new List<GameObject>();
     [SerializeField] List<GameObject> _3DoorsRooms = new List<GameObject>();
     [SerializeField] List<GameObject> _4DoorsRooms = new List<GameObject>();
     float spawnDelay;
     bool spawnNow = false;
+    int roomSpawn = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,8 @@ public class RoomGeneration : MonoBehaviour
 
     private void StartSpawning()
     {
-        
+
+        string _roomType;
+        roomSpawn++;
     } 
 }
