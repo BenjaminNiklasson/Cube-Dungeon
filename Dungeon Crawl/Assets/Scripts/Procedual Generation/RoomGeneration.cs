@@ -1,11 +1,10 @@
-using Assets.Scripts.Procedual_Generation;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomGeneration : MonoBehaviour
 {
-    [SerializeField] List<RoomSpawnpointNumber> _roomSpawnPoints = new List<RoomSpawnpointNumber>();
+    [SerializeField] List<RoomSpawnpoint> _roomSpawnPoints = new List<RoomSpawnpoint>();
     [SerializeField] Dictionary<string, GameObject> _rooms = new Dictionary<string, GameObject>();
     List<GameObject> _2AdjacentDoorRooms = new List<GameObject>();
     List<GameObject> _2OppositeDoorRooms = new List<GameObject>();
