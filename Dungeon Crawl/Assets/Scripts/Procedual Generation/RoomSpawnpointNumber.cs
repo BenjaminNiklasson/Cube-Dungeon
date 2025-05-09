@@ -19,7 +19,7 @@ namespace Assets.Scripts.Procedual_Generation
         {
             _roomNumber = number;
             _roomPosition = position;
-            //_doorTrigger = 
+            _doorTrigger = _roomPosition.GetComponent<Collider2D>();
         }
     }
 }
