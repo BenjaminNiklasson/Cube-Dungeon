@@ -60,6 +60,17 @@ public class EnemySpawn2 : MonoBehaviour
                 waves[activeWave][enemyType]--;
                 break;
         }
-        Invoke("Spawn", spawnCooldown);
+        bool keepSpawning = false;
+        for (int i = 0; i<waves[activeWave].Count; i++)
+        {
+            if (waves[activeWave][i] !=0)
+            {
+                keepSpawning = true;
+            }
+        }
+        if (keepSpawning == true)
+        {
+            Invoke("Spawn", spawnCooldown);
+        }
     }
 }
