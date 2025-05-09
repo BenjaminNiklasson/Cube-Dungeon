@@ -9,16 +9,17 @@ namespace Assets.Scripts.Procedual_Generation
 {
     internal class RoomSpawnpointNumber
     {
-        string _roomType;
+        List<bool> _roomDoors = new List<bool>();
         Transform _roomPosition;
         int _roomNumber;
+        Collider2D _doorTrigger;
 
 
-        public RoomSpawnpointNumber(int number, Transform position, string Type)
+        public RoomSpawnpointNumber(int number, Transform position)
         {
             _roomNumber = number;
             _roomPosition = position;
-            _roomType = Type;
+            //_doorTrigger = 
         }
     }
 }
