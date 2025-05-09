@@ -3,19 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
 public class RoomSpawnpoint : MonoBehaviour
 {
     List<bool> _roomDoors = new List<bool>();
-    Transform _roomPosition;
     int _roomNumber;
     Collider2D _doorTrigger;
 
-    public RoomSpawnpoint(int number, Transform position)
+    private void Awake()
     {
-        _roomNumber = number;
-        _roomPosition = position;
-        _doorTrigger = _roomPosition.GetComponent<Collider2D>();
+        _doorTrigger = gameObject.GetComponent<Collider2D>();
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
     }
 
     public string GetType()
