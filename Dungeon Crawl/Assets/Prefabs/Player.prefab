@@ -371,8 +371,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d85b649bea79a4dae7af0d781365f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBulletSpeed: 10
-  playerDamage: 10
-  playerWeaponCooldown: 0.5
   playerBullet: {fileID: 4840432972189335135, guid: 2494754379f282f4da96be59a677e578, type: 3}
+  bulletSpawnPoint: {fileID: 0}
+  bulletSpreadDegrees: 10
   playerGun: {fileID: 4241194217280946723}
+  playerBulletSpeed: 3
+  playerWeaponCooldown: 0.5
+  playerDamage: 10

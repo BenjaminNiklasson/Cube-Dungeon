@@ -8,7 +8,7 @@ public class Bullet1 : MonoBehaviour
     [SerializeField] float rotateAfterBounce;
     bool bounceBullet = true;
     bool lifesteal;
-    int numBounces = 1;
+    int numBounces = 2;
     Rigidbody2D rb;
     float dmg;
 
@@ -20,29 +20,27 @@ public class Bullet1 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (numBounces > 0)
-        {
-            if (collision.gameObject.CompareTag("Enemy") )
-            {
-                collision.gameObject.GetComponent<EnemyDeath>().health = collision.gameObject.GetComponent<EnemyDeath>().health-dmg;
-                Destroy(gameObject);
-            }
-            else
-            {
-                ContactPoint2D contact = collision.contacts[0]; // Get collision point
-                Vector2 reflectedVelocity = Vector2.Reflect(rb.velocity, contact.normal); // Reflect velocity
-                rb.velocity = reflectedVelocity;
-                RotateTowardsVelocity();
-                numBounces--;   
-            }
-        }
-        else
+        numBounces--;
+        if (numBounces < 0)
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 Destroy(collision.gameObject);
             }
             Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<EnemyDeath>().health = collision.gameObject.GetComponent<EnemyDeath>().health - dmg;
+            Destroy(gameObject);
+        }
+        else
+        {
+            var firstContact = collision.contacts[0];
+            Vector2 reflectedVelocity = Vector2.Reflect(rb.velocity, firstContact.normal); 
+            rb.velocity = reflectedVelocity;
+            RotateTowardsVelocity();
         }
     }
 
