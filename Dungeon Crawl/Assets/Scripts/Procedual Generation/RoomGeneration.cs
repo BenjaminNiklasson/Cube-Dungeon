@@ -10,7 +10,6 @@ public class RoomGeneration : MonoBehaviour
     [SerializeField] List<GameObject> _3DoorsRooms = new List<GameObject>();
     [SerializeField] List<GameObject> _4DoorsRooms = new List<GameObject>();
     [SerializeField] float spawnDelay = 0.1f;
-    bool spawnNow = false;
     int roomNumber = 0;
 
     // Start is called before the first frame update
