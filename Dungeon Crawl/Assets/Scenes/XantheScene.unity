@@ -197,6 +197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50650a02236a24444943f5478e1f298f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _2AdjacentDoorRooms: []
+  _2OppositeDoorRooms: []
+  _3DoorsRooms: []
+  _4DoorsRooms: []
 --- !u!4 &980656419
 Transform:
   m_ObjectHideFlags: 0
