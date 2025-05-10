@@ -52,5 +52,9 @@ public class RoomGeneration : MonoBehaviour
         roomRotation.z = roomRotation.z + _roomSpawnPoints[roomNumber].GetRotation();
         Instantiate(roomToSpawn, _roomSpawnPoints[roomNumber].GetPosition(), roomRotation);
         roomNumber++;
+        if (roomNumber <= transform.childCount)
+        {
+            Invoke("StartSpawning", spawnDelay);
+        }
     } 
 }
