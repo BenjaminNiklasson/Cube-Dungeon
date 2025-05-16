@@ -16,12 +16,17 @@ public class EnemySpawn2 : MonoBehaviour
     [SerializeField] float spawnCooldown = 1f;
     int activeWave;
     bool startedSpawning = false;
+    int enemiesLeft;
     void Start()
     {
         waves.Add(wave1);
         waves.Add(wave2);
         waves.Add(wave3);
         activeWave = Random.Range(0, waves.Count);
+        for (int i = 0; i < waves[activeWave].Count; i++)
+        {
+            enemiesLeft = enemiesLeft + waves[activeWave][i];
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -41,36 +46,34 @@ public class EnemySpawn2 : MonoBehaviour
             enemyType = Random.Range(0, 3);
             enemyToSpawn = waves[activeWave][enemyType];
         }
+        GameObject spawnedEnemy = null;
         switch (enemyType)
         {
             case 0:
-                Instantiate(swarmer, spawnPoint);
+                spawnedEnemy = Instantiate(swarmer, spawnPoint);
                 waves[activeWave][enemyType]--;
                 break;
             case 1:
-                Instantiate(sewerslider, spawnPoint);
+                spawnedEnemy = Instantiate(sewerslider, spawnPoint);
                 waves[activeWave][enemyType]--;
                 break;
             case 2:
-                Instantiate(shooter, spawnPoint);
+                spawnedEnemy = Instantiate(shooter, spawnPoint);
                 waves[activeWave][enemyType]--;
                 break;
             case 3:
-                Instantiate(jeff, spawnPoint);
+                spawnedEnemy = Instantiate(jeff, spawnPoint);
                 waves[activeWave][enemyType]--;
                 break;
         }
-        bool keepSpawning = false;
-        for (int i = 0; i<waves[activeWave].Count; i++)
-        {
-            if (waves[activeWave][i] !=0)
-            {
-                keepSpawning = true;
-            }
-        }
-        if (keepSpawning == true)
+        enemiesLeft--;
+        if (enemiesLeft != 0)
         {
             Invoke("Spawn", spawnCooldown);
+        }
+        else if (enemiesLeft == 0)
+        {
+            spawnedEnemy.GetComponent<ChestSpawn>().iSpawnTheChest = true;
         }
     }
 }

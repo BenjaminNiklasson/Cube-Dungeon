@@ -11,6 +11,7 @@ public class RoomGeneration : MonoBehaviour
     [SerializeField] List<GameObject> _4DoorsRooms = new List<GameObject>();
     [SerializeField] float spawnDelay = 0.1f;
     int roomNumber = 0;
+    int exitRoom = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class RoomGeneration : MonoBehaviour
         {
             _roomSpawnPoints.Add(transform.GetChild(i).GetComponent<RoomSpawnpoint>());
         }
+        exitRoom = UnityEngine.Random.Range(6, transform.childCount);
         Invoke("StartSpawning", spawnDelay);
     }
 
@@ -30,6 +32,7 @@ public class RoomGeneration : MonoBehaviour
 
     private void StartSpawning()
     {
+        _roomSpawnPoints[roomNumber].CheckCollisions(roomNumber);
         string _roomType = _roomSpawnPoints[roomNumber].GetType();
         GameObject roomToSpawn = null;
         switch (_roomType)
@@ -49,7 +52,8 @@ public class RoomGeneration : MonoBehaviour
         }
         Quaternion roomRotation = transform.rotation;
         roomRotation.z = roomRotation.z + _roomSpawnPoints[roomNumber].GetRotation();
-        Instantiate(roomToSpawn, _roomSpawnPoints[roomNumber].GetPosition(), roomRotation);
+        GameObject SpawnedRoom = Instantiate(roomToSpawn, _roomSpawnPoints[roomNumber].GetPosition(), roomRotation);
+        SpawnedRoom.GetComponentInChildren<ExitSpawn>().iSpawn = true;
         roomNumber++;
         if (roomNumber <= transform.childCount)
         {
