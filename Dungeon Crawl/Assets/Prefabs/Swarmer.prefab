@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7393336508294692294}
   - component: {fileID: 7033652327801650067}
+  - component: {fileID: 8744241057120362385}
   - component: {fileID: 4039379771605547150}
   - component: {fileID: 1882157618474655785}
   - component: {fileID: 769799859248324407}
@@ -50,6 +51,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d510442f2c9bd49af4c40ebd4f892d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8744241057120362385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7891858814362259017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c7e7511d6f1de439681f51708ce87a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iSpawnTheChest: 0
+  dying: 0
 --- !u!212 &4039379771605547150
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -30,8 +30,9 @@ public class EnemyDeath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health == 0)
+        if (health <= 0)
         {
+            gameObject.GetComponent<ChestSpawn>().dying = true;
             Destroy(gameObject);
         }
     }
