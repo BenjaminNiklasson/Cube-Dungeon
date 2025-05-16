@@ -64,7 +64,55 @@ public class RoomSpawnpoint : MonoBehaviour
         if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor)
         {
             _roomType = "_2AdjacentDoorRooms";
-            _roomRotation = 90;
+            _roomRotation = 180;
+        }
+        else if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor && childNumber == 5)
+        {
+            int rnd = UnityEngine.Random.Range(1, 11);
+            switch (rnd)
+            {
+                case int n when (n >= 5 && n <= 10):
+                    _roomType = "_3DoorsRooms";
+                    _roomRotation = 90;
+                    break;
+                case 4:
+                    _roomType = "_2AdjacentDoorRooms";
+                    _roomRotation = 90;
+                    break;
+                case 3:
+                    _roomType = "_2AdjacentDoorRooms";
+                    _roomRotation = 0;
+                    break;
+                case 2:
+                case 1:
+                    _roomType = "_2OppositeDoorRooms";
+                    _roomRotation = 90;
+                    break;
+            }
+        }
+        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor && childNumber == 5)
+        {
+            int rnd = UnityEngine.Random.Range(1, 11);
+            switch (rnd)
+            {
+                case int n when (n >= 5 && n <= 10):
+                    _roomType = "_3DoorsRooms";
+                    _roomRotation = 180;
+                    break;
+                case 4:
+                    _roomType = "_2AdjacentDoorRooms";
+                    _roomRotation = 180;
+                    break;
+                case 3:
+                    _roomType = "_2AdjacentDoorRooms";
+                    _roomRotation = 90;
+                    break;
+                case 2:
+                case 1:
+                    _roomType = "_2OppositeDoorRooms";
+                    _roomRotation = 180;
+                    break;
+            }
         }
         else if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor)
         {
@@ -76,12 +124,12 @@ public class RoomSpawnpoint : MonoBehaviour
             {
                 _roomType = "_2OppositeDoorRooms";
             }
-            _roomRotation = 45;
+            _roomRotation = 90;
         }
         else if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.wall)
         {
             _roomType = "_2AdjacentDoorRooms";
-            _roomRotation = 45;
+            _roomRotation = 90;
         }
         else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor)
         {
@@ -93,55 +141,7 @@ public class RoomSpawnpoint : MonoBehaviour
             {
                 _roomType = "_2OppositeDoorRooms";
             }
-            _roomRotation = 90;
-        }
-        else if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor && childNumber == 5)
-        {
-            int rnd = UnityEngine.Random.Range(1, 11);
-            switch (rnd)
-            {
-                case int n when (n >= 5 && n <= 10):
-                    _roomType = "_3DoorsRooms";
-                    _roomRotation = 45;
-                    break;
-                case 4:
-                    _roomType = "_2AdjacentDoorRooms";
-                    _roomRotation = 45;
-                    break;
-                case 3:
-                    _roomType = "_2AdjacentDoorRooms";
-                    _roomRotation = 0;
-                    break;
-                case 2:
-                case 1:
-                    _roomType = "_2OppositeDoorRooms";
-                    _roomRotation = 45;
-                    break;
-            }
-        }
-        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor && childNumber == 5)
-        {
-            int rnd = UnityEngine.Random.Range(1, 11);
-            switch (rnd)
-            {
-                case int n when (n >= 5 && n <= 10):
-                    _roomType = "_3DoorsRooms";
-                    _roomRotation = 90;
-                    break;
-                case 4:
-                    _roomType = "_2AdjacentDoorRooms";
-                    _roomRotation = 90;
-                    break;
-                case 3:
-                    _roomType = "_2AdjacentDoorRooms";
-                    _roomRotation = 45;
-                    break;
-                case 2:
-                case 1:
-                    _roomType = "_2OppositeDoorRooms";
-                    _roomRotation = 90;
-                    break;
-            }
+            _roomRotation = 180;
         }
         else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor)
         {
@@ -158,15 +158,15 @@ public class RoomSpawnpoint : MonoBehaviour
                     break;
                 case int n when (n >= 15 && n <= 17):
                     _roomType = "_3DoorsRooms";
-                    _roomRotation = 45;
+                    _roomRotation = 90;
                     break;
                 case int n when (n >= 12 && n <= 14):
                     _roomType = "_3DoorsRooms";
-                    _roomRotation = 90;
+                    _roomRotation = 180;
                     break;
                 case int n when (n >= 9 && n <= 11):
                     _roomType = "_3DoorsRooms";
-                    _roomRotation = 135;
+                    _roomRotation = 270;
                     break;
                 case 8:
                 case 7:
@@ -176,7 +176,7 @@ public class RoomSpawnpoint : MonoBehaviour
                 case 6:
                 case 5:
                     _roomType = "_2OppositeDoorRooms";
-                    _roomRotation = 45;
+                    _roomRotation = 90;
                     break;
                 case 4:
                     _roomType = "_2AdjacentDoorRooms";
@@ -184,15 +184,15 @@ public class RoomSpawnpoint : MonoBehaviour
                     break;
                 case 3:
                     _roomType = "_2AdjacentDoorRooms";
-                    _roomRotation = 45;
+                    _roomRotation = 90;
                     break;
                 case 2:
                     _roomType = "_2AdjacentDoorRooms";
-                    _roomRotation = 90;
+                    _roomRotation = 180;
                     break;
                 case 1:
                     _roomType = "_2AdjacentDoorRooms";
-                    _roomRotation = 135;
+                    _roomRotation = 270;
                     break;
             }
         }
@@ -216,7 +216,7 @@ public class RoomSpawnpoint : MonoBehaviour
         else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.wall && _roomDoors[4] == RoomDoors.posibleDoor)
         {
             _roomType = "_2AdjacentDoorRooms";
-            _roomRotation = 135;
+            _roomRotation = 270;
         }
         else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.wall && _roomDoors[4] == RoomDoors.posibleDoor)
         {
@@ -228,17 +228,17 @@ public class RoomSpawnpoint : MonoBehaviour
             {
                 _roomType = "_2OppositeDoorRooms";
             }
-            _roomRotation = 135;
+            _roomRotation = 270;
         }
         else if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.wall && _roomDoors[4] == RoomDoors.posibleDoor)
         {
             _roomType = "_2OppositeDoorRooms";
-            _roomRotation = 135;
+            _roomRotation = 270;
         }
         else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.wall && _roomDoors[4] == RoomDoors.wall)
         {
             _roomType = "_2AdjacentDoorRooms";
-            _roomRotation = 135;
+            _roomRotation = 270;
         }
     }
 
