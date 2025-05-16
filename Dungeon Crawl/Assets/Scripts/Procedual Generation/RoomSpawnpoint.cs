@@ -5,13 +5,19 @@ using UnityEngine;
 
 public class RoomSpawnpoint : MonoBehaviour
 {
-    List<bool> _roomDoors = new List<bool>();
-    int _roomNumber;
     Collider2D _doorTrigger;
+    string _roomType;
+    int _roomRotation;
+    ContactFilter2D _filter = new ContactFilter2D();
+    Collider2D[] _results = new Collider2D[10];
+    enum RoomDoors {posibleDoor, door, wall};
+    RoomDoors[] _roomDoors = new RoomDoors[4];
 
     private void Awake()
     {
         _doorTrigger = gameObject.GetComponent<Collider2D>();
+        _filter.NoFilter();
+        ResetRoomDoors();
     }
 
     public Vector3 GetPosition()
@@ -21,11 +27,238 @@ public class RoomSpawnpoint : MonoBehaviour
 
     public string GetType()
     {
-
+        return _roomType;
     }
 
     public int GetRotation()
     {
+        return _roomRotation;
+    }
 
+    public void CheckCollisions(int childNumber)
+    {
+        _results = new Collider2D[10];
+        ResetRoomDoors();
+        int count = _doorTrigger.OverlapCollider(_filter, _results);
+
+        for (int i = 0; i > _results.Length; i++)
+        {
+            if (Math.Abs(_results[i].transform.position.x - transform.position.x) < Math.Abs(_results[i].transform.position.y - transform.position.y) & _results[i].transform.position.y - transform.position.y > 0)
+            {
+                CheckCollisionTag(1, i);
+            }
+            else if (Math.Abs(_results[i].transform.position.x - transform.position.x) > Math.Abs(_results[i].transform.position.y - transform.position.y) & _results[i].transform.position.x - transform.position.x < 0)
+            {
+                CheckCollisionTag(2, i);
+            }
+            else if (Math.Abs(_results[i].transform.position.x - transform.position.x) < Math.Abs(_results[i].transform.position.x - transform.position.x) & _results[i].transform.position.y - transform.position.y < 0)
+            {
+                CheckCollisionTag(3, i);
+            }
+            else if (Math.Abs(_results[i].transform.position.x - transform.position.x) > Math.Abs(_results[i].transform.position.x - transform.position.x) & _results[i].transform.position.x - transform.position.x > 0)
+            {
+                CheckCollisionTag(4, i);
+            }
+        }
+
+        if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor)
+        {
+            _roomType = "_2AdjacentDoorRooms";
+            _roomRotation = 90;
+        }
+        else if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor)
+        {
+            if (UnityEngine.Random.Range(1, 6) > 2)
+            {
+                _roomType = "_3DoorsRooms";
+            }
+            else
+            {
+                _roomType = "_2OppositeDoorRooms";
+            }
+            _roomRotation = 45;
+        }
+        else if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.wall)
+        {
+            _roomType = "_2AdjacentDoorRooms";
+            _roomRotation = 45;
+        }
+        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor)
+        {
+            if (UnityEngine.Random.Range(1, 6) > 2)
+            {
+                _roomType = "_3DoorsRooms";
+            }
+            else
+            {
+                _roomType = "_2OppositeDoorRooms";
+            }
+            _roomRotation = 90;
+        }
+        else if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor && childNumber == 5)
+        {
+            int rnd = UnityEngine.Random.Range(1, 11);
+            switch (rnd)
+            {
+                case int n when (n >= 5 && n <= 10):
+                    _roomType = "_3DoorsRooms";
+                    _roomRotation = 45;
+                    break;
+                case 4:
+                    _roomType = "_2AdjacentDoorRooms";
+                    _roomRotation = 45;
+                    break;
+                case 3:
+                    _roomType = "_2AdjacentDoorRooms";
+                    _roomRotation = 0;
+                    break;
+                case 2:
+                case 1:
+                    _roomType = "_2OppositeDoorRooms";
+                    _roomRotation = 45;
+                    break;
+            }
+        }
+        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor && childNumber == 5)
+        {
+            int rnd = UnityEngine.Random.Range(1, 11);
+            switch (rnd)
+            {
+                case int n when (n >= 5 && n <= 10):
+                    _roomType = "_3DoorsRooms";
+                    _roomRotation = 90;
+                    break;
+                case 4:
+                    _roomType = "_2AdjacentDoorRooms";
+                    _roomRotation = 90;
+                    break;
+                case 3:
+                    _roomType = "_2AdjacentDoorRooms";
+                    _roomRotation = 45;
+                    break;
+                case 2:
+                case 1:
+                    _roomType = "_2OppositeDoorRooms";
+                    _roomRotation = 90;
+                    break;
+            }
+        }
+        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor)
+        {
+            int rnd = UnityEngine.Random.Range(1, 36);
+            switch (rnd)
+            {
+                case int n when (n >= 21 && n <= 36):
+                    _roomType = "_4DoorsRooms";
+                    _roomRotation = 0;
+                    break;
+                case int n when (n >= 18 && n <= 20):
+                    _roomType = "_3DoorsRooms";
+                    _roomRotation = 0;
+                    break;
+                case int n when (n >= 15 && n <= 17):
+                    _roomType = "_3DoorsRooms";
+                    _roomRotation = 45;
+                    break;
+                case int n when (n >= 12 && n <= 14):
+                    _roomType = "_3DoorsRooms";
+                    _roomRotation = 90;
+                    break;
+                case int n when (n >= 9 && n <= 11):
+                    _roomType = "_3DoorsRooms";
+                    _roomRotation = 135;
+                    break;
+                case 8:
+                case 7:
+                    _roomType = "_2OppositeDoorRooms";
+                    _roomRotation = 0;
+                    break;
+                case 6:
+                case 5:
+                    _roomType = "_2OppositeDoorRooms";
+                    _roomRotation = 45;
+                    break;
+                case 4:
+                    _roomType = "_2AdjacentDoorRooms";
+                    _roomRotation = 0;
+                    break;
+                case 3:
+                    _roomType = "_2AdjacentDoorRooms";
+                    _roomRotation = 45;
+                    break;
+                case 2:
+                    _roomType = "_2AdjacentDoorRooms";
+                    _roomRotation = 90;
+                    break;
+                case 1:
+                    _roomType = "_2AdjacentDoorRooms";
+                    _roomRotation = 135;
+                    break;
+            }
+        }
+        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.wall)
+        {
+            if (UnityEngine.Random.Range(1, 6) > 2)
+            {
+                _roomType = "_3DoorsRooms";
+            }
+            else
+            {
+                _roomType = "_2OppositeDoorRooms";
+            }
+            _roomRotation = 0;
+        }
+        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.wall)
+        {
+            _roomType = "_2OppositeDoorRooms";
+            _roomRotation = 0;
+        }
+        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.wall && _roomDoors[4] == RoomDoors.posibleDoor)
+        {
+            _roomType = "_2AdjacentDoorRooms";
+            _roomRotation = 135;
+        }
+        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.wall && _roomDoors[4] == RoomDoors.posibleDoor)
+        {
+            if (UnityEngine.Random.Range(1, 6) > 2)
+            {
+                _roomType = "_3DoorsRooms";
+            }
+            else
+            {
+                _roomType = "_2OppositeDoorRooms";
+            }
+            _roomRotation = 135;
+        }
+        else if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.wall && _roomDoors[4] == RoomDoors.posibleDoor)
+        {
+            _roomType = "_2OppositeDoorRooms";
+            _roomRotation = 135;
+        }
+        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.wall && _roomDoors[4] == RoomDoors.wall)
+        {
+            _roomType = "_2AdjacentDoorRooms";
+            _roomRotation = 135;
+        }
+    }
+
+    private void CheckCollisionTag(int position, int colliderNumber)
+    {
+        if (_results[colliderNumber].CompareTag("Door"))
+        {
+            _roomDoors[position] = RoomDoors.door;
+        }
+        else if (_results[colliderNumber].CompareTag("Wall"))
+        {
+            _roomDoors[position] = RoomDoors.wall;
+        }
+    }
+
+    private void ResetRoomDoors()
+    {
+        for (int i = 0; i >= 4; i++)
+        {
+            _roomDoors[i] = RoomDoors.posibleDoor;
+        }
     }
 }
