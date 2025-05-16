@@ -4,12 +4,12 @@ using UnityEngine;
 public enum UpgradeType
 {
     SpreadShot,
-    PierceBullet,
-    BulletLifeSteal,
     FasterBullets,
     LessCooldown,
     MoreDamage,
-    BounceBullet
+    //BounceBullet,
+    //PierceBullet,
+    //BulletLifeSteal
 }
 
 [System.Serializable]
