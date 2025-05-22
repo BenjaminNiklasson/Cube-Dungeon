@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
-        ApplyUpgrades(); // Apply upgrades on start
+        StartCoroutine(ApplyUpgradesWithDelay());
     }
 
     private void Update()
@@ -91,4 +91,29 @@ public class Weapon : MonoBehaviour
             rb.AddForce(bullet.transform.up * playerBulletSpeed, ForceMode2D.Impulse);
         }
     }
+    private IEnumerator ApplyUpgradesWithDelay()
+    {
+        yield return null;
+
+        var upgrades = UpgradeManager.Instance;
+        if (upgrades == null) yield break;
+
+        if (upgrades.HasUpgrade(UpgradeType.LessCooldown))
+        {
+            playerWeaponCooldown = Mathf.Max(0.1f, playerWeaponCooldown - 0.05f * upgrades.GetStackCount(UpgradeType.LessCooldown));
+        }
+
+        if (upgrades.HasUpgrade(UpgradeType.MoreDamage))
+        {
+            playerDamage += 1f * upgrades.GetStackCount(UpgradeType.MoreDamage);
+        }
+
+        if (upgrades.HasUpgrade(UpgradeType.FasterBullets))
+        {
+            playerBulletSpeed += 1f * upgrades.GetStackCount(UpgradeType.FasterBullets);
+        }
+
+        Debug.Log($"Cooldown: {playerWeaponCooldown}, Damage: {playerDamage}, Bullet Speed: {playerBulletSpeed}");
+    }
+
 }

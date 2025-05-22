@@ -28,6 +28,10 @@ public class UpgradeManager : MonoBehaviour
 
     private Dictionary<UpgradeType, int> upgrades = new Dictionary<UpgradeType, int>();
 
+    private void Start()
+    {
+        ApplyInspectorUpgrades();
+    }
     private void Awake()
     {
         if (Instance == null)
