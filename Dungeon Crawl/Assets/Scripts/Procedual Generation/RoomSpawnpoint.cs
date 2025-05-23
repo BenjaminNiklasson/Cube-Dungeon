@@ -248,7 +248,7 @@ public class RoomSpawnpoint : MonoBehaviour
         {
             _roomDoors[position] = RoomDoors.door;
         }
-        else if (_results[colliderNumber].CompareTag("Wall"))
+        else if (_results[colliderNumber].CompareTag("WallTrigger"))
         {
             _roomDoors[position] = RoomDoors.wall;
         }

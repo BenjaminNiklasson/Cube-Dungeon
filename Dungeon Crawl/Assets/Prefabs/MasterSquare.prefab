@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3613875813226687707}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: WallTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.14194107, y: 5.221751}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 1766063348343855160}
   m_Layer: 0
   m_Name: 'Trigger '
-  m_TagString: Untagged
+  m_TagString: WallTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 4423351759351200424}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: WallTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,7 +215,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 9.658382, y: 3.6090317}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 3598057509727752237}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: WallTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,7 +292,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -6.239622, y: -0.4118023}
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 191155150091670421}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: WallTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 56644534307991493}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: WallTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -493,7 +493,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -6.5869255, y: -0.4118023}
@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 3477475739204992228}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: WallTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -570,7 +570,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 10.156448, y: 3.6090317}
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 4374107525231867088}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: WallTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -647,7 +647,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -6.191576, y: -0.4118023}
@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 7604991591703753024}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: WallTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 8083961964376548297}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: WallTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -801,7 +801,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.14194107, y: 5.221751}
@@ -829,7 +829,7 @@ GameObject:
   - component: {fileID: 3050536145344060704}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: WallTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -878,7 +878,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 9.985683, y: 3.6090317}
@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 2553706316522887545}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: WallTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -955,7 +955,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.14194107, y: 5.221751}
