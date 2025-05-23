@@ -16,7 +16,7 @@ public class RoomSpawnpoint : MonoBehaviour
 
     private void Awake()
     {
-        _doorTrigger = gameObject.GetComponent<Collider2D>();
+        _doorTrigger = gameObject.GetComponentInChildren<BoxCollider2D>();
         _filter.SetLayerMask(layerMask);
         _filter.useLayerMask = true;
         _filter.useTriggers = true;
