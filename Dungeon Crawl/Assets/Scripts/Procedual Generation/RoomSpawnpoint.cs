@@ -44,32 +44,32 @@ public class RoomSpawnpoint : MonoBehaviour
         ResetRoomDoors();
         int count = _doorTrigger.OverlapCollider(_filter, _results);
 
-        for (int i = 0; i > _results.Length; i++)
+        for (int i = 0; i < count; i++)
         {
             if (Math.Abs(_results[i].transform.position.x - transform.position.x) < Math.Abs(_results[i].transform.position.y - transform.position.y) & _results[i].transform.position.y - transform.position.y > 0)
             {
-                CheckCollisionTag(1, i);
+                CheckCollisionTag(0, i);
             }
             else if (Math.Abs(_results[i].transform.position.x - transform.position.x) > Math.Abs(_results[i].transform.position.y - transform.position.y) & _results[i].transform.position.x - transform.position.x < 0)
             {
-                CheckCollisionTag(2, i);
+                CheckCollisionTag(1, i);
             }
             else if (Math.Abs(_results[i].transform.position.x - transform.position.x) < Math.Abs(_results[i].transform.position.x - transform.position.x) & _results[i].transform.position.y - transform.position.y < 0)
             {
-                CheckCollisionTag(3, i);
+                CheckCollisionTag(2, i);
             }
             else if (Math.Abs(_results[i].transform.position.x - transform.position.x) > Math.Abs(_results[i].transform.position.x - transform.position.x) & _results[i].transform.position.x - transform.position.x > 0)
             {
-                CheckCollisionTag(4, i);
+                CheckCollisionTag(3, i);
             }
         }
 
-        if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor)
+        if (_roomDoors[0] == RoomDoors.wall && _roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.posibleDoor)
         {
             _roomType = "_2AdjacentDoorRooms";
             _roomRotation = 180;
         }
-        else if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor && childNumber == 5)
+        else if (_roomDoors[0] == RoomDoors.wall && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.posibleDoor && childNumber == 5)
         {
             int rnd = UnityEngine.Random.Range(1, 11);
             switch (rnd)
@@ -93,7 +93,7 @@ public class RoomSpawnpoint : MonoBehaviour
                     break;
             }
         }
-        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor && childNumber == 5)
+        else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.posibleDoor && childNumber == 5)
         {
             int rnd = UnityEngine.Random.Range(1, 11);
             switch (rnd)
@@ -117,7 +117,7 @@ public class RoomSpawnpoint : MonoBehaviour
                     break;
             }
         }
-        else if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor)
+        else if (_roomDoors[0] == RoomDoors.wall && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.posibleDoor)
         {
             if (UnityEngine.Random.Range(1, 6) > 2)
             {
@@ -129,12 +129,12 @@ public class RoomSpawnpoint : MonoBehaviour
             }
             _roomRotation = 90;
         }
-        else if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.wall)
+        else if (_roomDoors[0] == RoomDoors.wall && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.wall)
         {
             _roomType = "_2AdjacentDoorRooms";
             _roomRotation = 90;
         }
-        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor)
+        else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.posibleDoor)
         {
             if (UnityEngine.Random.Range(1, 6) > 2)
             {
@@ -146,7 +146,7 @@ public class RoomSpawnpoint : MonoBehaviour
             }
             _roomRotation = 180;
         }
-        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.posibleDoor)
+        else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.posibleDoor)
         {
             int rnd = UnityEngine.Random.Range(1, 36);
             switch (rnd)
@@ -199,7 +199,7 @@ public class RoomSpawnpoint : MonoBehaviour
                     break;
             }
         }
-        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.wall)
+        else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.wall)
         {
             if (UnityEngine.Random.Range(1, 6) > 2)
             {
@@ -211,17 +211,17 @@ public class RoomSpawnpoint : MonoBehaviour
             }
             _roomRotation = 0;
         }
-        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor && _roomDoors[4] == RoomDoors.wall)
+        else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.wall)
         {
             _roomType = "_2OppositeDoorRooms";
             _roomRotation = 0;
         }
-        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.wall && _roomDoors[4] == RoomDoors.posibleDoor)
+        else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor)
         {
             _roomType = "_2AdjacentDoorRooms";
             _roomRotation = 270;
         }
-        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.wall && _roomDoors[4] == RoomDoors.posibleDoor)
+        else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor)
         {
             if (UnityEngine.Random.Range(1, 6) > 2)
             {
@@ -233,15 +233,19 @@ public class RoomSpawnpoint : MonoBehaviour
             }
             _roomRotation = 270;
         }
-        else if (_roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.wall && _roomDoors[4] == RoomDoors.posibleDoor)
+        else if (_roomDoors[0] == RoomDoors.wall && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor)
         {
             _roomType = "_2OppositeDoorRooms";
             _roomRotation = 270;
         }
-        else if (_roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.door && _roomDoors[3] == RoomDoors.wall && _roomDoors[4] == RoomDoors.wall)
+        else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.wall)
         {
             _roomType = "_2AdjacentDoorRooms";
             _roomRotation = 270;
+        }
+        else
+        {
+            _roomType = "_4DoorsRooms";
         }
     }
 
