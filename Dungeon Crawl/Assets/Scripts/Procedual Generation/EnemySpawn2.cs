@@ -6,10 +6,11 @@ using UnityEngine;
 public class EnemySpawn2 : MonoBehaviour
 {
     List<List<int>> waves = new List<List<int>>();
-    [SerializeField] GameObject jeff;
+    
     [SerializeField] GameObject swarmer;
-    [SerializeField] GameObject shooter;
     [SerializeField] GameObject sewerslider;
+    [SerializeField] GameObject shooter;
+    [SerializeField] GameObject jeff;
     [SerializeField] List<int> wave1 = new List<int>();
     [SerializeField] List<int> wave2 = new List<int>();
     [SerializeField] List<int> wave3 = new List<int>();
