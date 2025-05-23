@@ -9,7 +9,7 @@ public class RoomSpawnpoint : MonoBehaviour
     string _roomType;
     int _roomRotation;
     ContactFilter2D _filter = new ContactFilter2D();
-    LayerMask layerMask = LayerMask.GetMask("DoorTrigger");
+    LayerMask layerMask = LayerMask.GetMask("DoorCollider");
     Collider2D[] _results = new Collider2D[10];
     enum RoomDoors {posibleDoor, door, wall};
     RoomDoors[] _roomDoors = new RoomDoors[4];
