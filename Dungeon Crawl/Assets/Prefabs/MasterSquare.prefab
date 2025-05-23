@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 316368063002643978}
   - component: {fileID: 3613875813226687707}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger
   m_TagString: WallTrigger
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8888966894659432405}
   - component: {fileID: 1766063348343855160}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: 'Trigger '
   m_TagString: WallTrigger
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5159212883930003427}
   - component: {fileID: 4423351759351200424}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger
   m_TagString: WallTrigger
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4579860283692388154}
   - component: {fileID: 3598057509727752237}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger
   m_TagString: WallTrigger
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 163100088278722999}
   - component: {fileID: 191155150091670421}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger
   m_TagString: WallTrigger
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4064890919252946721}
   - component: {fileID: 56644534307991493}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger
   m_TagString: WallTrigger
   m_Icon: {fileID: 0}
@@ -519,7 +519,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4276906683778379891}
   - component: {fileID: 3477475739204992228}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger
   m_TagString: WallTrigger
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4235651082471754649}
   - component: {fileID: 4374107525231867088}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger
   m_TagString: WallTrigger
   m_Icon: {fileID: 0}
@@ -673,7 +673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 45185984186498775}
   - component: {fileID: 7604991591703753024}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger
   m_TagString: WallTrigger
   m_Icon: {fileID: 0}
@@ -750,7 +750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9049939417242667535}
   - component: {fileID: 8083961964376548297}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger
   m_TagString: WallTrigger
   m_Icon: {fileID: 0}
@@ -827,7 +827,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1726170819120300428}
   - component: {fileID: 3050536145344060704}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger
   m_TagString: WallTrigger
   m_Icon: {fileID: 0}
@@ -843,7 +843,7 @@ Transform:
   m_GameObject: {fileID: 8732932438660367512}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -74.1, y: -2.1, z: -0.06768489}
+  m_LocalPosition: {x: -74.1, y: 4.2, z: -0.06768489}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -904,7 +904,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4816561617477150192}
   - component: {fileID: 2553706316522887545}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger
   m_TagString: WallTrigger
   m_Icon: {fileID: 0}
