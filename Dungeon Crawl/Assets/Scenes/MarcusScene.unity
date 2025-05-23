@@ -279,7 +279,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6020066943685440714, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
+    - {fileID: 189532458501729790, guid: 52ef7284e404de540aa0d352f46b505a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -431,7 +433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9172427356613294911, guid: fc4023d88adccc94c98f312500f37a79, type: 3}
       propertyPath: m_Name
-      value: Exit
+      value: ExitSpawn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
