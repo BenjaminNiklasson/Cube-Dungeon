@@ -21,15 +21,21 @@ public class UpgradeEntry
 public class UpgradeManager : MonoBehaviour
 {
     public static UpgradeManager Instance { get; private set; }
+    GameObject Player;
+    public Weapon weapon;
 
-    [Header("Test Upgrades")]
+
+   [Header("Test Upgrades")]
     [SerializeField] private List<UpgradeEntry> testUpgrades = new List<UpgradeEntry>();
 
     private Dictionary<UpgradeType, int> upgrades = new Dictionary<UpgradeType, int>();
 
     private void Start()
     {
-        ApplyInspectorUpgrades();
+        //ApplyInspectorUpgrades();
+        Player = GameObject.FindWithTag("Player");
+        weapon = Player.GetComponent<Weapon>();
+        weapon.ApplyUpgrades();
     }
     private void Awake()
     {
@@ -37,7 +43,8 @@ public class UpgradeManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            ApplyInspectorUpgrades();
+            weapon.ApplyUpgrades();
+            //ApplyInspectorUpgrades();
         }
         else
         {
@@ -45,17 +52,17 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    private void ApplyInspectorUpgrades()
-    {
-        upgrades.Clear();
-        foreach (UpgradeEntry entry in testUpgrades)
-        {
-            if (entry.stackCount > 0)
-            {
-                upgrades[entry.type] = entry.stackCount;
-            }
-        }
-    }
+    //private void ApplyInspectorUpgrades()
+    //{
+    //    upgrades.Clear();
+    //    foreach (UpgradeEntry entry in testUpgrades)
+    //    {
+    //        if (entry.stackCount > 0)
+    //        {
+    //            upgrades[entry.type] = entry.stackCount;
+    //        }
+    //    }
+    //}
 
     public void AddUpgrade(UpgradeType type)
     {
