@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 8051853688199325750}
   - component: {fileID: 8599654167156205720}
   - component: {fileID: 8089229106187401893}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger (1)
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -1362,7 +1362,7 @@ GameObject:
   - component: {fileID: 4249075051426263830}
   - component: {fileID: 641442748768792379}
   - component: {fileID: 1699093186992787879}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger (2)
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -1622,7 +1622,7 @@ GameObject:
   - component: {fileID: 2980283955436618770}
   - component: {fileID: 7138424399168459560}
   - component: {fileID: 4700911327309027795}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger (3)
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -2142,7 +2142,7 @@ GameObject:
   - component: {fileID: 3234735352316774156}
   - component: {fileID: 8142041842324955918}
   - component: {fileID: 4825727013005707090}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trigger
   m_TagString: Door
   m_Icon: {fileID: 0}
