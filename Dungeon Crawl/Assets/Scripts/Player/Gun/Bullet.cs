@@ -5,12 +5,12 @@ using UnityEngine.UIElements;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] float rotateAfterBounce;
-    bool bounceBullet = true;
-    bool lifesteal;
-    int numBounces = 0;
     Rigidbody2D rb;
     float dmg;
+
+    //[SerializeField] float rotateAfterBounce;
+    //bool bounceBullet = true;
+    //int numBounces = 2;
 
     private void Start()
     {
@@ -20,43 +20,46 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (numBounces > 0)
+        //numBounces--;
+
+        //if (collision.gameObject.CompareTag("Enemy"))
+        //{
+        //    collision.gameObject.GetComponent<EnemyDeath>().health = collision.gameObject.GetComponent<EnemyDeath>().health - dmg;
+        //    Destroy(gameObject);
+        //}
+        //else
+        //{
+        //    if (numBounces < 0)
+        //     {
+        //         var firstContact = collision.contacts[0];
+        //         Vector2 reflectedVelocity = Vector2.Reflect(rb.velocity, firstContact.normal); 
+        //         rb.velocity = reflectedVelocity;
+        //         RotateTowardsVelocity();
+        //     }
+        //     else
+        //     {
+        //         Destroy(gameObject);
+        //     }
+        //}
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (collision.gameObject.CompareTag("Enemy"))
-            {
-                collision.gameObject.GetComponent<EnemyDeath>().health = collision.gameObject.GetComponent<EnemyDeath>().health-dmg;
-                Destroy(gameObject);
-            }
-            else
-            {
-                RotateTowardsVelocity();
-                numBounces--;   
-            }
+            collision.gameObject.GetComponent<EnemyDeath>().health = collision.gameObject.GetComponent<EnemyDeath>().health - dmg;
+            Lifesteal();
         }
-        else
-        {
-            if (collision.gameObject.CompareTag("Enemy"))
-            {
-                Destroy(collision.gameObject);
-            }
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 
-    void RotateTowardsVelocity()
-    {
-        float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
-        rb.angularVelocity = 0f;
-        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
-        Debug.Log("ResettingRotation");
-    }
+    //void RotateTowardsVelocity()
+    //{
+    //    float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+    //    rb.angularVelocity = 0f;
+    //    transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+    //    Debug.Log("ResettingRotation");
+    //}
 
     void Lifesteal()
     {
-        if (lifesteal)
-        {
-            FindFirstObjectByType<ScenePersist>().AddLifestealCounter();
-        }
+        FindFirstObjectByType<ScenePersist>().AddLifestealCounter();
     }
 
     private void OnBecameInvisible()
