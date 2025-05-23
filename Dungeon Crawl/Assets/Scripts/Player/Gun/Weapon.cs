@@ -39,7 +39,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void ApplyUpgrades()
+    public void ApplyUpgrades()
     {
         var upgrades = UpgradeManager.Instance;
         if (upgrades == null) return;
