@@ -12,6 +12,7 @@ public class RoomGeneration : MonoBehaviour
     [SerializeField] float spawnDelay = 0.1f;
     int roomNumber = 0;
     int exitRoom = 0;
+    string _roomType;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class RoomGeneration : MonoBehaviour
     private void StartSpawning()
     {
         _roomSpawnPoints[roomNumber].CheckCollisions(roomNumber);
-        string _roomType = _roomSpawnPoints[roomNumber].GetType();
+        _roomType = _roomSpawnPoints[roomNumber].GetType();
         GameObject roomToSpawn = null;
         switch (_roomType)
         {

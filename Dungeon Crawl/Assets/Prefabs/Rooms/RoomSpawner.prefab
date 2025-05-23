@@ -144,13 +144,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _2AdjacentDoorRooms:
-  - {fileID: 7567070330785613716, guid: 1201529abae14094bb91467d7494cbe8, type: 3}
+  - {fileID: 1009188728586924272, guid: 1025bbd5fa7ef5947b1954849fa66d3e, type: 3}
   _2OppositeDoorRooms:
-  - {fileID: 620524203148202354, guid: 16114d88c900fb14fa6f1e4cc5111b42, type: 3}
+  - {fileID: 3655281088532060739, guid: 65e1f8292b1f54f48973156ec8ad6941, type: 3}
   _3DoorsRooms:
-  - {fileID: 1237175054957104700, guid: fff084f29b04f684fad7764032d6ad92, type: 3}
+  - {fileID: 7033173258201988226, guid: 9f7be3572f6226d46915c25faa86c0be, type: 3}
   _4DoorsRooms:
-  - {fileID: 8131797467628020868, guid: 0d4d788648490424c9f7f97c73d2feab, type: 3}
+  - {fileID: 1445962608247738667, guid: 1ffbe2e20faa8d847b7f649636921c31, type: 3}
   spawnDelay: 0.1
 --- !u!1 &3483557800215479161
 GameObject:
