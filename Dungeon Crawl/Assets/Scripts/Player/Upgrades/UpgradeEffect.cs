@@ -28,7 +28,7 @@ public class UpgradeEffect : MonoBehaviour
                 FindFirstObjectByType<UpgradeManager>().AddUpgrade(UpgradeType.LessCooldown);
                 break;
         }
-
+        FindFirstObjectByType<Weapon>().ApplyUpgrades();
         Destroy(gameObject);
     }
 }
