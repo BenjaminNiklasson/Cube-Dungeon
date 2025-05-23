@@ -243,6 +243,7 @@ public class RoomSpawnpoint : MonoBehaviour
             _roomType = "_2AdjacentDoorRooms";
             _roomRotation = 270;
         }
+        _roomType = "_4DoorsRooms";
     }
 
     private void CheckCollisionTag(int position, int colliderNumber)
