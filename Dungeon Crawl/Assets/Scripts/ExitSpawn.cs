@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ExitSpawn : MonoBehaviour
 {
-    public bool iSpawn = true;
+    public bool iSpawn = false;
     public string prefabName = "ExitSpawn";
-    public Vector3 spawnPosition = Vector3.zero;
     [SerializeField] GameObject exitSpawn;
+    bool spawnedExit = false;
 
     void Start()
     {
@@ -18,9 +18,10 @@ public class ExitSpawn : MonoBehaviour
     void SpawnPrefab()
     {
         
-        if (exitSpawn != null)
+        if (exitSpawn != null && spawnedExit == false)
         {
-            Instantiate(exitSpawn, spawnPosition, Quaternion.identity);
+            Instantiate(exitSpawn, transform.position, Quaternion.identity);
+            spawnedExit = true;
         }
         else
         {

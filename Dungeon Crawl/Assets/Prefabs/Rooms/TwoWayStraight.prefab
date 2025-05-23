@@ -1179,6 +1179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7581411176476236432}
+  - component: {fileID: -2150370119960803854}
   m_Layer: 0
   m_Name: TwoWayStraight
   m_TagString: Untagged
@@ -1223,6 +1224,22 @@ Transform:
   - {fileID: 5526610001679833993}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.222}
+--- !u!114 &-2150370119960803854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655281088532060739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffca640194adc0b4cbc25cc7f1703c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iSpawn: 0
+  prefabName: ExitSpawn
+  spawnPosition: {x: 0, y: 0, z: 0}
+  exitSpawn: {fileID: 9172427356613294911, guid: fc4023d88adccc94c98f312500f37a79, type: 3}
 --- !u!1 &5590236757078120963
 GameObject:
   m_ObjectHideFlags: 0
