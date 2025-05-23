@@ -9,7 +9,6 @@ public enum UpgradeType
     MoreDamage,
     //BounceBullet,
     //PierceBullet,
-    //BulletLifeSteal
 }
 
 [System.Serializable]

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UpgradeEffect : MonoBehaviour
 {
-    enum Upgrades { lifesteal, damage, bulletSpeed, bulletCount, cooldown, pierce };
+    enum Upgrades { lifesteal, MoreDamage, FasterBullets, SpreadShot, LessCooldown };
     [SerializeField] Upgrades _upgrades = new Upgrades();
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -13,22 +13,19 @@ public class UpgradeEffect : MonoBehaviour
         switch (_upgrades)
         {
             case Upgrades.lifesteal:
-                FindFirstObjectByType<ScenePersist>().IncreasInt("lifesteal");
+                FindFirstObjectByType<ScenePersist>().IncreasLifesteal();
                 break;
-            case Upgrades.damage:
-                FindFirstObjectByType<ScenePersist>().IncreasInt("damage");
+            case Upgrades.MoreDamage:
+                FindFirstObjectByType<UpgradeManager>().AddUpgrade(UpgradeType.MoreDamage);
                 break;
-            case Upgrades.bulletSpeed:
-                FindFirstObjectByType<ScenePersist>().IncreasInt("bulletSpeed");
+            case Upgrades.FasterBullets:
+                FindFirstObjectByType<UpgradeManager>().AddUpgrade(UpgradeType.FasterBullets);
                 break;
-            case Upgrades.bulletCount:
-                FindFirstObjectByType<ScenePersist>().IncreasInt("bulletCount");
+            case Upgrades.SpreadShot:
+                FindFirstObjectByType<UpgradeManager>().AddUpgrade(UpgradeType.SpreadShot);
                 break;
-            case Upgrades.cooldown:
-                FindFirstObjectByType<ScenePersist>().IncreasInt("cooldown");
-                break;
-            case Upgrades.pierce:
-                FindFirstObjectByType<ScenePersist>().IncreasInt("pierce");
+            case Upgrades.LessCooldown:
+                FindFirstObjectByType<UpgradeManager>().AddUpgrade(UpgradeType.LessCooldown);
                 break;
         }
 
