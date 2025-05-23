@@ -9,6 +9,7 @@ public class RoomSpawnpoint : MonoBehaviour
     string _roomType;
     int _roomRotation;
     ContactFilter2D _filter = new ContactFilter2D();
+    LayerMask layerMask = LayerMask.GetMask("DoorTrigger");
     Collider2D[] _results = new Collider2D[10];
     enum RoomDoors {posibleDoor, door, wall};
     RoomDoors[] _roomDoors = new RoomDoors[4];
@@ -16,7 +17,7 @@ public class RoomSpawnpoint : MonoBehaviour
     private void Awake()
     {
         _doorTrigger = gameObject.GetComponent<Collider2D>();
-        _filter.SetLayerMask(LayerMask.GetMask("DoorTrigger"));
+        _filter.SetLayerMask(layerMask);
         _filter.useLayerMask = true;
         _filter.useTriggers = true;
         ResetRoomDoors();
