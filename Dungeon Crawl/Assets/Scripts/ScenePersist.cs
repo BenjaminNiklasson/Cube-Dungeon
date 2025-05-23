@@ -74,4 +74,9 @@ public class ScenePersist : MonoBehaviour
     {
         invincible = false;
     }
+
+    public void IncreasLifesteal()
+    {
+        lifestealAmount++;
+    }
 }
