@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ExitSpawn : MonoBehaviour
 {
-    public bool iSpawn = false;
+    public bool iSpawn = true;
     public string prefabName = "ExitSpawn";
     public Vector3 spawnPosition = Vector3.zero;
     [SerializeField] GameObject exitSpawn;
