@@ -68,6 +68,7 @@ public class RoomSpawnpoint : MonoBehaviour
         {
             _roomType = "_2AdjacentDoorRooms";
             _roomRotation = 180;
+            Debug.Log("ifstatement 1");
         }
         else if (_roomDoors[0] == RoomDoors.wall && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.posibleDoor && childNumber == 5)
         {
@@ -92,6 +93,7 @@ public class RoomSpawnpoint : MonoBehaviour
                     _roomRotation = 90;
                     break;
             }
+            Debug.Log("ifstatement 2");
         }
         else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.posibleDoor && childNumber == 5)
         {
@@ -116,6 +118,7 @@ public class RoomSpawnpoint : MonoBehaviour
                     _roomRotation = 180;
                     break;
             }
+            Debug.Log("ifstatement 3");
         }
         else if (_roomDoors[0] == RoomDoors.wall && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.posibleDoor)
         {
@@ -128,11 +131,13 @@ public class RoomSpawnpoint : MonoBehaviour
                 _roomType = "_2OppositeDoorRooms";
             }
             _roomRotation = 90;
+            Debug.Log("ifstatement 4");
         }
         else if (_roomDoors[0] == RoomDoors.wall && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.wall)
         {
             _roomType = "_2AdjacentDoorRooms";
             _roomRotation = 90;
+            Debug.Log("ifstatement 5");
         }
         else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.posibleDoor)
         {
@@ -145,6 +150,7 @@ public class RoomSpawnpoint : MonoBehaviour
                 _roomType = "_2OppositeDoorRooms";
             }
             _roomRotation = 180;
+            Debug.Log("ifstatement 6");
         }
         else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.posibleDoor)
         {
@@ -198,6 +204,7 @@ public class RoomSpawnpoint : MonoBehaviour
                     _roomRotation = 270;
                     break;
             }
+            Debug.Log("ifstatement 7");
         }
         else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.wall)
         {
@@ -210,16 +217,19 @@ public class RoomSpawnpoint : MonoBehaviour
                 _roomType = "_2OppositeDoorRooms";
             }
             _roomRotation = 0;
+            Debug.Log("ifstatement 8");
         }
         else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.wall)
         {
             _roomType = "_2OppositeDoorRooms";
             _roomRotation = 0;
+            Debug.Log("ifstatement 9");
         }
         else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.wall && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor)
         {
             _roomType = "_2AdjacentDoorRooms";
             _roomRotation = 270;
+            Debug.Log("ifstatement 10");
         }
         else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor)
         {
@@ -232,20 +242,24 @@ public class RoomSpawnpoint : MonoBehaviour
                 _roomType = "_2OppositeDoorRooms";
             }
             _roomRotation = 270;
+            Debug.Log("ifstatement 11");
         }
         else if (_roomDoors[0] == RoomDoors.wall && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor)
         {
             _roomType = "_2OppositeDoorRooms";
             _roomRotation = 270;
+            Debug.Log("ifstatement 12");
         }
         else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.wall)
         {
             _roomType = "_2AdjacentDoorRooms";
             _roomRotation = 270;
+            Debug.Log("ifstatement 13");
         }
         else
         {
             _roomType = "_4DoorsRooms";
+            Debug.Log("ifstatement chrach");
         }
     }
 
