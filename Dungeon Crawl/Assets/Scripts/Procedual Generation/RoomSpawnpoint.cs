@@ -57,12 +57,12 @@ public class RoomSpawnpoint : MonoBehaviour
                 CheckCollisionTag(1, i);
                 Debug.Log($"Collider {i} is to the left");
             }
-            else if (Math.Abs(_results[i].transform.position.x - transform.position.x) < Math.Abs(_results[i].transform.position.x - transform.position.x) && _results[i].transform.position.y - transform.position.y < 0)
+            else if (Math.Abs(_results[i].transform.position.x - transform.position.x) < Math.Abs(_results[i].transform.position.y - transform.position.y) && _results[i].transform.position.y - transform.position.y < 0)
             {
                 CheckCollisionTag(2, i);
                 Debug.Log($"Collider {i} is under");
             }
-            else if (Math.Abs(_results[i].transform.position.x - transform.position.x) > Math.Abs(_results[i].transform.position.x - transform.position.x) && _results[i].transform.position.x - transform.position.x > 0)
+            else if (Math.Abs(_results[i].transform.position.x - transform.position.x) > Math.Abs(_results[i].transform.position.y - transform.position.y) && _results[i].transform.position.x - transform.position.x > 0)
             {
                 CheckCollisionTag(3, i);
                 Debug.Log($"Collider {i} is right");
@@ -217,14 +217,7 @@ public class RoomSpawnpoint : MonoBehaviour
         }
         else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.posibleDoor && _roomDoors[3] == RoomDoors.wall)
         {
-            if (UnityEngine.Random.Range(1, 6) > 2)
-            {
-                _roomType = "_3DoorsRooms";
-            }
-            else
-            {
-                _roomType = "_2OppositeDoorRooms";
-            }
+            _roomType = "_3DoorsRooms";
             _roomRotation = 0;
             Debug.Log("ifstatement 8");
         }
@@ -242,14 +235,7 @@ public class RoomSpawnpoint : MonoBehaviour
         }
         else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.posibleDoor)
         {
-            if (UnityEngine.Random.Range(1, 6) > 2)
-            {
-                _roomType = "_3DoorsRooms";
-            }
-            else
-            {
-                _roomType = "_2OppositeDoorRooms";
-            }
+            _roomType = "_3DoorsRooms";
             _roomRotation = 270;
             Debug.Log("ifstatement 11");
         }
@@ -262,7 +248,7 @@ public class RoomSpawnpoint : MonoBehaviour
         else if (_roomDoors[0] == RoomDoors.door && _roomDoors[1] == RoomDoors.door && _roomDoors[2] == RoomDoors.wall && _roomDoors[3] == RoomDoors.wall)
         {
             _roomType = "_2AdjacentDoorRooms";
-            _roomRotation = 270;
+            _roomRotation = 0;
             Debug.Log("ifstatement 13");
         }
         else

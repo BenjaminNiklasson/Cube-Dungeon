@@ -55,7 +55,7 @@ public class RoomGeneration : MonoBehaviour
                 break;
         }
         Quaternion roomRotation = transform.rotation;
-        roomRotation.z = roomRotation.z + _roomSpawnPoints[roomNumber].GetRotation();
+        roomRotation = Quaternion.Euler(0, 0, _roomSpawnPoints[roomNumber].GetRotation());
         Vector3 roomPosition = new Vector3(transform.GetChild(roomNumber).GetChild(0).position.x + offsetX, transform.GetChild(roomNumber).GetChild(0).position.y + offsetY, transform.GetChild(roomNumber).GetChild(0).position.z);
         GameObject SpawnedRoom = Instantiate(roomToSpawn, roomPosition, roomRotation);
         if (roomNumber == exitRoom)
