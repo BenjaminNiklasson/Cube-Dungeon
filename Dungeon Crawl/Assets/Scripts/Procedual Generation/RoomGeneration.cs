@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 public class RoomGeneration : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class RoomGeneration : MonoBehaviour
     [SerializeField] List<GameObject> _3DoorsRooms = new List<GameObject>();
     [SerializeField] List<GameObject> _4DoorsRooms = new List<GameObject>();
     [SerializeField] float spawnDelay = 0.1f;
+    [SerializeField] float offsetX;
+    [SerializeField] float offsetY;
     int roomNumber = 0;
     int exitRoom = 0;
     string _roomType;
@@ -53,7 +56,8 @@ public class RoomGeneration : MonoBehaviour
         }
         Quaternion roomRotation = transform.rotation;
         roomRotation.z = roomRotation.z + _roomSpawnPoints[roomNumber].GetRotation();
-        GameObject SpawnedRoom = Instantiate(roomToSpawn, transform.GetChild(roomNumber).GetChild(0).position, roomRotation);
+        Vector3 roomPosition = new Vector3(transform.GetChild(roomNumber).GetChild(0).position.x + offsetX, transform.GetChild(roomNumber).GetChild(0).position.y + offsetY, transform.GetChild(roomNumber).GetChild(0).position.z);
+        GameObject SpawnedRoom = Instantiate(roomToSpawn, roomPosition, roomRotation);
         if (roomNumber == exitRoom)
         {
             SpawnedRoom.GetComponentInChildren<ExitSpawn>().iSpawn = true;

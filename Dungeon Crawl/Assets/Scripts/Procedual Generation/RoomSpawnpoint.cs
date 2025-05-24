@@ -46,21 +46,30 @@ public class RoomSpawnpoint : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            if (Math.Abs(_results[i].transform.position.x - transform.position.x) < Math.Abs(_results[i].transform.position.y - transform.position.y) & _results[i].transform.position.y - transform.position.y > 0)
+            Debug.Log($"Checking collider {i} at position {_results[i].transform.position}");
+            if (Math.Abs(_results[i].transform.position.x - transform.position.x) < Math.Abs(_results[i].transform.position.y - transform.position.y) && _results[i].transform.position.y - transform.position.y > 0)
             {
                 CheckCollisionTag(0, i);
+                Debug.Log($"Collider {i} is above");
             }
-            else if (Math.Abs(_results[i].transform.position.x - transform.position.x) > Math.Abs(_results[i].transform.position.y - transform.position.y) & _results[i].transform.position.x - transform.position.x < 0)
+            else if (Math.Abs(_results[i].transform.position.x - transform.position.x) > Math.Abs(_results[i].transform.position.y - transform.position.y) && _results[i].transform.position.x - transform.position.x < 0)
             {
                 CheckCollisionTag(1, i);
+                Debug.Log($"Collider {i} is to the left");
             }
-            else if (Math.Abs(_results[i].transform.position.x - transform.position.x) < Math.Abs(_results[i].transform.position.x - transform.position.x) & _results[i].transform.position.y - transform.position.y < 0)
+            else if (Math.Abs(_results[i].transform.position.x - transform.position.x) < Math.Abs(_results[i].transform.position.x - transform.position.x) && _results[i].transform.position.y - transform.position.y < 0)
             {
                 CheckCollisionTag(2, i);
+                Debug.Log($"Collider {i} is under");
             }
-            else if (Math.Abs(_results[i].transform.position.x - transform.position.x) > Math.Abs(_results[i].transform.position.x - transform.position.x) & _results[i].transform.position.x - transform.position.x > 0)
+            else if (Math.Abs(_results[i].transform.position.x - transform.position.x) > Math.Abs(_results[i].transform.position.x - transform.position.x) && _results[i].transform.position.x - transform.position.x > 0)
             {
                 CheckCollisionTag(3, i);
+                Debug.Log($"Collider {i} is right");
+            }
+            else
+            {
+                Debug.Log("No math if statement was run");
             }
         }
 
@@ -277,7 +286,7 @@ public class RoomSpawnpoint : MonoBehaviour
 
     private void ResetRoomDoors()
     {
-        for (int i = 0; i >= 4; i++)
+        for (int i = 0; i < 4; i++)
         {
             _roomDoors[i] = RoomDoors.posibleDoor;
         }
