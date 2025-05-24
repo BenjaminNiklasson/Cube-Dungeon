@@ -2442,6 +2442,10 @@ PrefabInstance:
       value: Trigger (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8154449636558999878, guid: 837e937020bf1bb4ca42cb265f913662, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154449636558999878, guid: 837e937020bf1bb4ca42cb265f913662, type: 3}
       propertyPath: m_TagString
       value: WallTrigger
       objectReference: {fileID: 0}
@@ -2646,6 +2650,10 @@ PrefabInstance:
     - target: {fileID: 8154449636558999878, guid: 837e937020bf1bb4ca42cb265f913662, type: 3}
       propertyPath: m_Name
       value: Trigger (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154449636558999878, guid: 837e937020bf1bb4ca42cb265f913662, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8154449636558999878, guid: 837e937020bf1bb4ca42cb265f913662, type: 3}
       propertyPath: m_TagString
