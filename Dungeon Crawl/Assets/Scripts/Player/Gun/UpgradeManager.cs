@@ -32,7 +32,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void Start()
     {
-        //ApplyInspectorUpgrades();
+        ApplyInspectorUpgrades();
         Player = GameObject.FindWithTag("Player");
         weapon = Player.GetComponent<Weapon>();
         weapon.ApplyUpgrades();
@@ -44,7 +44,7 @@ public class UpgradeManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             weapon.ApplyUpgrades();
-            //ApplyInspectorUpgrades();
+            ApplyInspectorUpgrades();
         }
         else
         {
@@ -52,17 +52,17 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    //private void ApplyInspectorUpgrades()
-    //{
-    //    upgrades.Clear();
-    //    foreach (UpgradeEntry entry in testUpgrades)
-    //    {
-    //        if (entry.stackCount > 0)
-    //        {
-    //            upgrades[entry.type] = entry.stackCount;
-    //        }
-    //    }
-    //}
+    private void ApplyInspectorUpgrades()
+    {
+        upgrades.Clear();
+        foreach (UpgradeEntry entry in testUpgrades)
+        {
+            if (entry.stackCount > 0)
+            {
+                upgrades[entry.type] = entry.stackCount;
+            }
+        }
+    }
 
     public void AddUpgrade(UpgradeType type)
     {

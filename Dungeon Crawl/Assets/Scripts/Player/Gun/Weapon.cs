@@ -19,6 +19,7 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         StartCoroutine(ApplyUpgradesWithDelay());
+        ApplyUpgrades();
     }
 
     private void Update()
@@ -57,6 +58,12 @@ public class Weapon : MonoBehaviour
         if (upgrades.HasUpgrade(UpgradeType.FasterBullets))
         {
             playerBulletSpeed += 1f * upgrades.GetStackCount(UpgradeType.FasterBullets);
+        }
+
+        if (upgrades.HasUpgrade(UpgradeType.SpreadShot))
+        {
+            Quaternion spreadRotation = transform.rotation;
+            FireBullet(spreadRotation);
         }
     }
     private void OnFire()
@@ -111,6 +118,12 @@ public class Weapon : MonoBehaviour
         if (upgrades.HasUpgrade(UpgradeType.FasterBullets))
         {
             playerBulletSpeed += 1f * upgrades.GetStackCount(UpgradeType.FasterBullets);
+        }
+
+        if (upgrades.HasUpgrade(UpgradeType.SpreadShot))
+        {
+            Quaternion spreadRotation = transform.rotation;
+            FireBullet(spreadRotation);
         }
 
         Debug.Log($"Cooldown: {playerWeaponCooldown}, Damage: {playerDamage}, Bullet Speed: {playerBulletSpeed}");
